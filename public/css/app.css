@@ -16763,8 +16763,15 @@ readers do not read off random characters that represent icons */
 
 .div-stretch {
   position: absolute;
-  top: 0px;
+  top: 50px;
   bottom: 0px;
   width: 100% !important;
+}
+
+/* FONTS */
+
+.font-secondary {
+  color: white;
+  font-weight: bold;
 }
 

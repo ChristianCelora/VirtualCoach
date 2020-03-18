@@ -1,6 +1,20 @@
 // Variables
 @import 'variables';
 
-div.main-content{
-   
+main.main-content{
+   background-image: url("/vcoach/images/background.jpg");
+   background-repeat: no-repeat;
+   background-size: auto;
+   background-position: center;
+}
+
+/* CARDS */
+div.card.transparent-card {
+
+   background-color: rgba(255, 255, 255, 0.5);
+
+   & > .card-header {
+      background-color: rgba(255, 255, 255, 0.7);
+   }
+
 }

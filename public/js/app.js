@@ -41812,16 +41812,28 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 
 /***/ }),
 
+/***/ "./resources/sass/main_content.scss":
+/*!******************************************!*\
+  !*** ./resources/sass/main_content.scss ***!
+  \******************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+
 /***/ 0:
-/*!*****************************************************************************************************************************!*\
-  !*** multi ./resources/js/app.js ./resources/sass/form_buttons.scss ./resources/sass/header.scss ./resources/sass/app.scss ***!
-  \*****************************************************************************************************************************/
+/*!****************************************************************************************************************************************************************!*\
+  !*** multi ./resources/js/app.js ./resources/sass/form_buttons.scss ./resources/sass/header.scss ./resources/sass/main_content.scss ./resources/sass/app.scss ***!
+  \****************************************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(/*! /var/www/vcoach/VirtualCoach/resources/js/app.js */"./resources/js/app.js");
 __webpack_require__(/*! /var/www/vcoach/VirtualCoach/resources/sass/form_buttons.scss */"./resources/sass/form_buttons.scss");
 __webpack_require__(/*! /var/www/vcoach/VirtualCoach/resources/sass/header.scss */"./resources/sass/header.scss");
+__webpack_require__(/*! /var/www/vcoach/VirtualCoach/resources/sass/main_content.scss */"./resources/sass/main_content.scss");
 module.exports = __webpack_require__(/*! /var/www/vcoach/VirtualCoach/resources/sass/app.scss */"./resources/sass/app.scss");
 
 
