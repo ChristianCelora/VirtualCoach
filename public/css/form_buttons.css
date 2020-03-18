@@ -1,0 +1,62 @@
+label > input.custom-check {
+  /*display:none;*/
+}
+
+label > input.custom-check ~ i.fa.fa-square-o {
+  color: #c8c8c8;
+  display: block;
+}
+
+label > input.custom-check ~ i.fa.fa-check-square-o {
+  display: none;
+}
+
+label > input.custom-check ~ i.fa {
+  color: #e3342f;
+}
+
+label > input.custom-check label.active {
+  color: #e3342f;
+}
+
+label > input.custom-check:checked ~ i.fa.fa-square-o {
+  display: none;
+}
+
+label > input.custom-check:checked ~ i.fa.fa-check-square-o {
+  color: #e3342f;
+  display: block;
+}
+
+/*div.form-check > div[data-toggle="buttons"] label {
+   display: inline-block;
+   padding: 6px 12px;
+   margin-bottom: 0;
+   font-size: 14px;
+   font-weight: normal;
+   line-height: 2em;
+   text-align: left;
+   white-space: nowrap;
+   vertical-align: top;
+   cursor: pointer;
+   background-color: none;
+   border: 0px solid
+   #c8c8c8;
+   border-radius: 3px;
+   color: #c8c8c8;
+   -webkit-user-select: none;
+   -moz-user-select: none;
+   -ms-user-select: none;
+   -o-user-select: none;
+   user-select: none;
+
+   &:hover {
+      color: #7AA3CC;
+   }
+
+   &:active {
+      -webkit-box-shadow: none;
+      box-shadow: none;
+   }
+}*/
+
