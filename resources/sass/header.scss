@@ -1,0 +1,13 @@
+// Variables
+@import 'variables';
+
+nav.main-top-navbar {
+   color: $red !important;
+   font-weight: bold;
+   font-size: 1.10em;
+   letter-spacing: 0.1em;
+
+   & a {
+      color: $red !important;
+   }
+}

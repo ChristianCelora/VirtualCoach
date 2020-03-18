@@ -9,3 +9,11 @@
 
 // Font Awesome
 @import '~@fortawesome/fontawesome-free/scss/fontawesome';
+
+// Stretch main div through the page height
+.div-stretch{
+   position: absolute;
+   top: 0px;
+   bottom: 0px;
+   width: 100% !important;
+}

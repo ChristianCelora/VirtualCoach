@@ -16761,3 +16761,10 @@ readers do not read off random characters that represent icons */
   width: auto;
 }
 
+.div-stretch {
+  position: absolute;
+  top: 0px;
+  bottom: 0px;
+  width: 100% !important;
+}
+

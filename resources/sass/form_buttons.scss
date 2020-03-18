@@ -1,20 +1,20 @@
 @import 'variables';
 
-
 label > input.custom-check{
 
-   /*display:none;*/
+   display:none;
 
-   & ~ i.fa.fa-square-o{
+   & ~ .fa-square{
+       display: inline-block;
        color: #c8c8c8;
-       display: block;
    }
 
-   & ~ i.fa.fa-check-square-o{
+   & ~ .fa-check-square{
        display: none;
    }
 
-   & ~ i.fa {
+   & ~ .svg--inline--fa {
+      /*font-size: 2.5em ;*/
       color: $red;
    }
 
@@ -23,13 +23,13 @@ label > input.custom-check{
    }
 
    &:checked{
-      & ~ i.fa.fa-square-o{
+      & ~ .fa-square{
           display: none;
       }
 
-      & ~ i.fa.fa-check-square-o{
+      & ~ .fa-check-square{
           color: $red;
-          display: block;
+          display: inline-block;
       }
    }
 }

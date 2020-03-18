@@ -1,0 +1,11 @@
+nav.main-top-navbar {
+  color: #e3342f !important;
+  font-weight: bold;
+  font-size: 1.1em;
+  letter-spacing: 0.1em;
+}
+
+nav.main-top-navbar a {
+  color: #e3342f !important;
+}
+

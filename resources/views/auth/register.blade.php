@@ -62,13 +62,14 @@
                         </div>
 
                         <div class="form-group row">
-                            <div class="col-md-6 offset-6 form-check">
-                               <div class="d-inline-flex btn-group" data-toggle="buttons">
+                            <div class="col-md-12 d-flex flex-row-reverse">
 
+                               <div class="col-md-10 d-inline-flex btn-group" data-toggle="buttons">
                                   <label for="role" class="align-middle btn active">
+
                                      <span> Are you a trainer? </span>
-                                     <input id="role" type="checkbox" name="role" class="custom-check" value="trainer">
-                                     <i class="fas fa-square"></i><i class="fas fa-check-square"></i>
+                                     <input id="role" type="checkbox" name="role" class="custom-check ml-5" value="trainer">
+                                     <i class="far fa-square fa-2x"></i><i class="far fa-check-square fa-2x"></i>
                                   </label>
                                </div>
                             </div>

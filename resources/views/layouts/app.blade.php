@@ -19,10 +19,12 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/form_buttons.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/header.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/main_content.css') }}" rel="stylesheet">
 </head>
 <body>
-    <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+    <div id="app" class="bg-dark div-stretch">
+        <nav class="navbar navbar-expand-md navbar-dark bg-dark shadow-sm main-top-navbar">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
                     {{ config('app.name', 'Laravel') }}
@@ -73,7 +75,7 @@
             </div>
         </nav>
 
-        <main class="py-4">
+        <main class="main-content py-4">
             @yield('content')
         </main>
     </div>

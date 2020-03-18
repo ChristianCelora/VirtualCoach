@@ -11,11 +11,8 @@ const mix = require('laravel-mix');
  |
  */
 
-/*
-    .copy('node_modules/font-awesome/fonts/', 'public/fonts')
-    .sass('node_modules/font-awesome/scss/font-awesome.scss', 'public/css')
-*/
-
 mix.js('resources/js/app.js', 'public/js')
     .sass('resources/sass/form_buttons.scss', 'public/css')
+    .sass('resources/sass/header.scss', 'public/css')
+    .sass('resources/sass/main_content.scss', 'public/css')
     .sass('resources/sass/app.scss', 'public/css');
