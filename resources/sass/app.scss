@@ -19,7 +19,14 @@
 }
 
 /* FONTS */
-.font-secondary{
-   /*color: white;*/
-   font-weight: bold;
+.font-primary {
+   color: $primary;   
+}
+
+.font-secondary {
+   color: $secondary;
+}
+
+.font-black {
+   color: #000;
 }

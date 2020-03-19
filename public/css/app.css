@@ -16770,8 +16770,15 @@ readers do not read off random characters that represent icons */
 
 /* FONTS */
 
+.font-primary {
+  color: #ff0000;
+}
+
 .font-secondary {
-  /*color: white;*/
-  font-weight: bold;
+  color: #252525;
+}
+
+.font-black {
+  color: #000;
 }
 

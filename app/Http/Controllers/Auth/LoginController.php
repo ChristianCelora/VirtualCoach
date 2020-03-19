@@ -36,15 +36,5 @@ class LoginController extends Controller {
    public function __construct(){
       $this->middleware("guest")->except("logout");
    }
-
-   // public function login(Request $request)[
-   //    $user = User::select("name")
-   //       ->whereColumn("email", $request->email)
-   //       ->whereColumn("password", $request->email)
-   //       ->get();
-   // }
-
-   // public function logout(){
-   //    return redirect("/login");
-   // }
+   
 }

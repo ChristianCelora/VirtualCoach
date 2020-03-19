@@ -12,7 +12,7 @@
                         @csrf
 
                         <div class="form-group row">
-                            <label for="email" class="col-md-4 col-form-label text-md-right font-secondary">{{ __('E-Mail Address') }}</label>
+                            <label for="email" class="col-md-4 col-form-label text-md-right font-weight-bold">{{ __('E-Mail Address') }}</label>
 
                             <div class="col-md-6">
                                 <input id="email" type="email" class="form-control @error('email') is-invalid @enderror input-transparent" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
@@ -26,7 +26,7 @@
                         </div>
 
                         <div class="form-group row">
-                            <label for="password" class="col-md-4 col-form-label text-md-right font-secondary">{{ __('Password') }}</label>
+                            <label for="password" class="col-md-4 col-form-label text-md-right font-weight-bold">{{ __('Password') }}</label>
 
                             <div class="col-md-6">
                                 <input id="password" type="password" class="form-control @error('password') is-invalid @enderror input-transparent" name="password" required autocomplete="current-password">
@@ -45,7 +45,7 @@
                                 <div class="form-check">
                                     <label for="remember" class="align-middle btn active">
 
-                                      <span class="font-secondary"> {{ __('Remember Me') }} </span>
+                                      <span class="font-weight-bold"> {{ __('Remember Me') }} </span>
                                       <input class="form-check-input custom-check" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
                                       <!-- <input id="remember-me" type="checkbox" name="role" class="custom-check ml-5" value="trainer"> -->
                                       <i class="far fa-square fa-2x"></i><i class="far fa-check-square fa-2x"></i>
