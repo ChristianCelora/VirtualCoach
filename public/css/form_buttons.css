@@ -4,7 +4,7 @@ label > input.custom-check {
 
 label > input.custom-check ~ .fa-square {
   display: inline-block;
-  color: #c8c8c8;
+  color: #414141;
 }
 
 label > input.custom-check ~ .fa-check-square {
@@ -13,11 +13,11 @@ label > input.custom-check ~ .fa-check-square {
 
 label > input.custom-check ~ .svg--inline--fa {
   /*font-size: 2.5em ;*/
-  color: #e3342f;
+  color: #ff0000;
 }
 
 label > input.custom-check label.active {
-  color: #e3342f;
+  color: #ff0000;
 }
 
 label > input.custom-check:checked ~ .fa-square {
@@ -25,12 +25,15 @@ label > input.custom-check:checked ~ .fa-square {
 }
 
 label > input.custom-check:checked ~ .fa-check-square {
-  color: #e3342f;
+  color: #ff0000;
   display: inline-block;
 }
 
 input.input-transparent {
   background-color: transparent;
+  border: 2px solid #414141;
+  color: #000 !important;
+  /* Ovverides bootstrap */
 }
 
 input.input-transparent:focus {

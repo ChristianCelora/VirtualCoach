@@ -1,5 +1,6 @@
 nav.main-top-navbar {
-  color: #e3342f !important;
+  background-color: #252525 !important;
+  color: #ff0000 !important;
   font-weight: bold;
   font-size: 1.1em;
   letter-spacing: 0.1em;
@@ -7,6 +8,6 @@ nav.main-top-navbar {
 }
 
 nav.main-top-navbar a {
-  color: #e3342f !important;
+  color: #ff0000 !important;
 }
 

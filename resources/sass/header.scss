@@ -2,13 +2,14 @@
 @import 'variables';
 
 nav.main-top-navbar {
-   color: $red !important;
+   background-color: $secondary !important;
+   color: $primary !important;
    font-weight: bold;
    font-size: 1.10em;
    letter-spacing: 0.1em;
    z-index: 100;
-   
+
    & a {
-      color: $red !important;
+      color: $primary !important;
    }
 }
