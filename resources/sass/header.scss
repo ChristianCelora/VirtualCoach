@@ -3,7 +3,7 @@
 
 nav.main-top-navbar {
    background-color: $secondary !important;
-   color: $primary !important;
+   color: $primary;
    font-weight: bold;
    font-size: 1.10em;
    letter-spacing: 0.1em;
@@ -11,5 +11,29 @@ nav.main-top-navbar {
 
    & a {
       color: $primary !important;
+   }
+}
+
+nav .dropdown-menu {
+   background-color: transparent !important;
+
+   & > .dropdown-item {
+      text-align: center;
+      border-bottom: 1px solid $primary;
+      /*border-radius: 25px;*/
+      transition: color 500ms ease;
+   }
+
+   & > .dropdown-item:hover,
+   & > .dropdown-item:active,
+   & > .dropdown-item:focus {
+      /*background-color: rgba(246,246,246, 0.4) !important;*/
+      background-color: $primary !important;
+      color: #000 !important;
+      -webkit-transition: background-color 500ms ease-in-out;
+      -moz-transition: background-color 500ms ease-in-out;
+      -o-transition: background-color 500ms ease-in-out;
+      -ms-transition: background-color 500ms ease-in-out;
+      transition: background-color 500ms ease-in-out;
    }
 }

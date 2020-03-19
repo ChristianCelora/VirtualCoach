@@ -1,6 +1,6 @@
 nav.main-top-navbar {
   background-color: #252525 !important;
-  color: #ff0000 !important;
+  color: #ff0000;
   font-weight: bold;
   font-size: 1.1em;
   letter-spacing: 0.1em;
@@ -9,5 +9,25 @@ nav.main-top-navbar {
 
 nav.main-top-navbar a {
   color: #ff0000 !important;
+}
+
+nav .dropdown-menu {
+  background-color: transparent !important;
+}
+
+nav .dropdown-menu > .dropdown-item {
+  text-align: center;
+  border-bottom: 1px solid #ff0000;
+  /*border-radius: 25px;*/
+  transition: color 500ms ease;
+}
+
+nav .dropdown-menu > .dropdown-item:hover,
+nav .dropdown-menu > .dropdown-item:active,
+nav .dropdown-menu > .dropdown-item:focus {
+  /*background-color: rgba(246,246,246, 0.4) !important;*/
+  background-color: #ff0000 !important;
+  color: #000 !important;
+  transition: background-color 500ms ease-in-out;
 }
 
