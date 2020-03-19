@@ -13,7 +13,7 @@
         </div>
         @endif
         <div class="col-md-8">
-            <div class="card transparent-card">
+            <div class="card semi-transparent-card">
                 <div class="card-header"><h3 class="font-primary font-weight-bold">{{ __('Register') }}</h3></div>
 
                 <div class="card-body">

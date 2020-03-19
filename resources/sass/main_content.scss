@@ -10,11 +10,29 @@ main.main-content{
 
 /* CARDS */
 div.card.transparent-card {
+   background-color: transparent;
+}
+
+div.card.semi-transparent-card {
 
    background-color: rgba(255, 255, 255, 0.5);
 
    & > .card-header {
       background-color: rgba(255, 255, 255, 0.7);
    }
+}
 
+div.home-card {
+   cursor: pointer;
+   transition: color 500ms ease;
+
+   &:hover{
+      background-color: $primary !important;
+      color: #000 !important;
+      -webkit-transition: background-color 500ms ease-in-out;
+      -moz-transition: background-color 500ms ease-in-out;
+      -o-transition: background-color 500ms ease-in-out;
+      -ms-transition: background-color 500ms ease-in-out;
+      transition: background-color 500ms ease-in-out;
+   }
 }
