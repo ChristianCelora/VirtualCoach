@@ -9,6 +9,7 @@ main.main-content {
 
 div.card.transparent-card {
   background-color: transparent;
+  border: 0px;
 }
 
 div.card.semi-transparent-card {
@@ -21,12 +22,19 @@ div.card.semi-transparent-card > .card-header {
 
 div.home-card {
   cursor: pointer;
-  transition: color 500ms ease;
+  z-index: 0;
+  letter-spacing: 0.1em;
 }
 
 div.home-card:hover {
   background-color: #ff0000 !important;
-  color: #000 !important;
-  transition: background-color 500ms ease-in-out;
+  box-shadow: -10px 10px 0px 0px #252525;
+  z-index: 2;
+  transform: scale(1.1);
+  transition: box-shadow 500ms ease-in-out, transform 500ms ease-in-out, background-color 500ms ease-in-out;
+}
+
+div.home-card.font-primary:hover {
+  color: #252525;
 }
 

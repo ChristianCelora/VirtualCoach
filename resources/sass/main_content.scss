@@ -11,6 +11,7 @@ main.main-content{
 /* CARDS */
 div.card.transparent-card {
    background-color: transparent;
+   border: 0px;
 }
 
 div.card.semi-transparent-card {
@@ -24,15 +25,28 @@ div.card.semi-transparent-card {
 
 div.home-card {
    cursor: pointer;
-   transition: color 500ms ease;
+   // border: 1px $primary solid;
+   z-index: 0;
+   letter-spacing: 0.1em;
 
-   &:hover{
+   &:hover {
       background-color: $primary !important;
-      color: #000 !important;
-      -webkit-transition: background-color 500ms ease-in-out;
-      -moz-transition: background-color 500ms ease-in-out;
-      -o-transition: background-color 500ms ease-in-out;
-      -ms-transition: background-color 500ms ease-in-out;
-      transition: background-color 500ms ease-in-out;
+      -webkit-box-shadow: -10px 10px 0px 0px $secondary;
+      -moz-box-shadow: -10px 10px 0px 0px $secondary;
+      box-shadow: -10px 10px 0px 0px $secondary;
+      z-index: 2;
+      transform: scale(1.1);
+
+      // -webkit-transition: box-shadow 500ms ease-in-out, transform 500ms ease-in-out, color 500ms ease;
+      // -moz-transition: box-shadow 500ms ease-in-out, transform 500ms ease-in-out, color 500ms ease;
+      // -o-transition: box-shadow 500ms ease-in-out, transform 500ms ease-in-out, color 500ms ease;
+      // -ms-transition: box-shadow 500ms ease-in-out, transform 500ms ease-in-out, color 500ms ease;
+      transition: box-shadow 500ms ease-in-out, transform 500ms ease-in-out,
+         background-color 500ms ease-in-out;
+
+   }
+
+   &.font-primary:hover {
+      color: $secondary;
    }
 }
