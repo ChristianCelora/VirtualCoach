@@ -50,3 +50,32 @@ div.home-card {
       color: $secondary;
    }
 }
+
+div.user-card {
+   width: 100%;
+
+   & div.card-header {
+      background-color: $primary;
+      color: $secondary;
+   }
+
+   & div.card-body {
+
+      background-color: rgba($secondary, 0.7);
+
+      & div.user-menu {
+         background-color: $fourth;
+         color: $third;
+
+         & ul {
+            border-radius: 0px !important;
+            list-style-type: none;
+
+            & li {
+               padding-top: 0.5rem;
+               padding-bottom: 0.5rem;
+            }
+         }
+      }
+   }
+}

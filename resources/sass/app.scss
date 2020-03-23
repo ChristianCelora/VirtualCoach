@@ -13,8 +13,8 @@
 // Stretch main div through the page height
 .div-stretch{
    position: absolute;
-   top: 50px;
-   bottom: 0px;
+   top: 50px;     /* Header fixed size */
+   bottom: 65px;  /* Footer fixed size */
    width: 100% !important;
 }
 

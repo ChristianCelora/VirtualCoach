@@ -38,3 +38,31 @@ div.home-card.font-primary:hover {
   color: #252525;
 }
 
+div.user-card {
+  width: 100%;
+}
+
+div.user-card div.card-header {
+  background-color: #ff0000;
+  color: #252525;
+}
+
+div.user-card div.card-body {
+  background-color: rgba(37, 37, 37, 0.7);
+}
+
+div.user-card div.card-body div.user-menu {
+  background-color: #414141;
+  color: #af0404;
+}
+
+div.user-card div.card-body div.user-menu ul {
+  border-radius: 0px !important;
+  list-style-type: none;
+}
+
+div.user-card div.card-body div.user-menu ul li {
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+}
+
