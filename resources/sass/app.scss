@@ -20,7 +20,7 @@
 
 /* FONTS */
 .font-primary {
-   color: $primary;   
+   color: $primary;
 }
 
 .font-secondary {
@@ -29,4 +29,17 @@
 
 .font-black {
    color: #000;
+}
+
+/* FOOTER */
+footer.site-footer {
+   position: fixed;
+   left: 0;
+   bottom: 0;
+   width: 100%;
+   background-color: $secondary;
+
+   & ul {
+      list-style-type: none;
+   }
 }

@@ -78,8 +78,29 @@
         </nav>
 
         <main class="main-content py-4 div-stretch">
-            @yield('content')
+           @yield('content')
         </main>
+
+        <footer class="site-footer pt-4">
+           <div class="container">
+              <div class="row">
+                 <div class="col-md-8 col-sm-6 col-xs-12 font-primary">
+                    <p>Copyright &copy; 2020 All Rights Reserved by
+                       <a href="#">Celo</a>.
+                    </p>
+                 </div>
+
+                 <div class="col-md-4 col-sm-6 col-xs-12 font-primary">
+                    <ul class="list-group list-group-horizontal justify-content-end">
+                      <li class="px-2"><a class="facebook" href="#"><i class="fab fa-facebook-f"></i></a></li>
+                      <li class="px-2"><a class="twitter" href="#"><i class="fab fa-twitter"></i></a></li>
+                      <li class="px-2"><a class="dribbble" href="#"><i class="fab fa-dribbble"></i></a></li>
+                      <li class="px-2"><a class="linkedin" href="#"><i class="fab fa-linkedin"></i></a></li>
+                    </ul>
+                 </div>
+              </div>
+           </div>
+        </footer>
     </div>
 </body>
 </html>
