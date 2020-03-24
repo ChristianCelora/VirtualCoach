@@ -15,19 +15,24 @@ use Illuminate\Support\Facades\Route;
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/', 'HomeController@index')->name('home');
-Route::get('/test', function () {
-    return view('welcome');
-});
+Route::middleware(['auth'])->group(function () {
+   Route::get('/home', 'HomeController@index')->name('home');
+   Route::get('/', 'HomeController@index')->name('home');
+   Route::get('/test', function () {
+       return view('welcome');
+   });
 
-Route::name('user.')->group(function () {
-   // Route assigned name "user.info"
-    Route::get('info', 'UserController@showInfo')->name('info');
+   Route::name('user.')->group(function () {
+      // Route assigned name "user.info"
+       Route::get('info', 'UserController@showInfo')->name('info');
 
-    // Route assigned name "user.trainings"
-    Route::get('trainings', 'UserController@showTrainings')->name('trainings');
+       // Route assigned name "user.physique"
+       Route::get('physique', 'UserController@getUserPhysiqueData')->name('physique');
 
-    // Route assigned name "user.workout"
-    Route::get('workout', 'UserController@showWorkouts')->name('workout');
+       // Route assigned name "user.trainings"
+       Route::get('trainings', 'UserController@showTrainings')->name('trainings');
+
+       // Route assigned name "user.workout"
+       Route::get('workout', 'UserController@showWorkouts')->name('workout');
+   });
 });

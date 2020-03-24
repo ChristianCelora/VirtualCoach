@@ -16765,7 +16765,7 @@ readers do not read off random characters that represent icons */
   position: absolute;
   top: 50px;
   /* Header fixed size */
-  bottom: 65px;
+  bottom: 55px;
   /* Footer fixed size */
   width: 100% !important;
 }

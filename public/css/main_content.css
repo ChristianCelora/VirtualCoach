@@ -62,7 +62,16 @@ div.user-card div.card-body div.user-menu ul {
 }
 
 div.user-card div.card-body div.user-menu ul li {
-  padding-top: 0.5rem;
-  padding-bottom: 0.5rem;
+  padding: 0.5rem 0 0.5rem 0.5rem;
+  cursor: pointer;
+}
+
+div.user-card div.card-body div.user-menu ul li:hover {
+  text-decoration: underline;
+}
+
+div.user-card div.card-body div.user-menu ul li.active {
+  color: #af0404;
+  text-decoration: underline;
 }
 

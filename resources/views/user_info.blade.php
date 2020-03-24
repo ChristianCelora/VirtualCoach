@@ -1,25 +1,24 @@
-@extends('layouts.app')
+@extends('layouts.account')
 
-@section('content')
-<div class="container h-100">
-   <div class="mt-4 d-flex justify-content-center align-items-stretch">
-      <div class="card transparent-card user-card">
-
-         <div class="card-header d-flex align-items-start"><h3 class="font-weight-bold">User Info</h3></div>
-
-         <div class="card-body p-0">
-            <div class="col-md-3 col-sm-2 user-menu p-0">
-               <ul class="py-2 px-1 mb-0">
-                  <li><h4 >User info</h4></li>
-                  <li><h4 >Physical info</h4></li>
-                  <li><h4 >---Coming soon---</h4></li>
-               </ul>
-            </div>
-            <div class="col-md-10">
-
-            </div>
-         </div>
-      </div>
+@section('user_content')
+<div class="col-md-3 user-menu p-0">
+   <ul class="py-2 px-1 mb-0">
+      <li class="active"><a href="{{ route('user.info') }}"><h4>User info</h4></a></li>
+      <li><a href="{{ route('user.physique') }}"><h4 >Physical info</h4></a></li>
+      <li><a href="#" class='disabled'><h4 >---Coming soon---</h4></a></li>
+   </ul>
+</div>
+<div class="col-md-9">
+   <div class="row font-primary p-3">
+      <div class="col-4"><h4>Name</h4></div>
+      <div class="col-8"><h4>{{ Auth::user()->name }}</h4></div>
+      <div class="col-4 pt-1"><h4>Email</h4></div>
+      <div class="col-8"><h4>{{ Auth::user()->email }}</h4></div>
+      <div class="col-4 pt-1"><h4>Password</h4></div>
+      <div class="col-8"><h4>******</h4></div>
+      <div class="col-4 pt-1"><h4>Created at</h4></div>
+      <div class="col-8"><h4>{{ Auth::user()->created_at }}</h4></div>
    </div>
 </div>
+
 @endsection
