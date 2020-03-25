@@ -18,13 +18,24 @@ class UserController extends Controller {
    public function getUserPhysiqueData(){
       $data = array();
       $data["title"] = "My physique";
-      $data["pysique_history"] = $this->getPhisiqueHistory(Auth::user()->id);
+
+      try{
+         $data["pysique_history"] = $this->getPhisiqueHistory(Auth::user()->id);
+      }catch(ModelNotFoundException $e){
+         return back()->with("alert", array("status" => "error", "message" => $e->getMessage()));
+      }
+
       return view("user_physique", ["data" => $data]);
    }
 
    private function getPhisiqueHistory($user_id){
       $data = array();
 
+      $physiques = Physique::where("client_id", "=", $user_id)->get();
+      foreach ($physiques as $p){
+         $data[$p->created_at->format("d M Y - H:i:s")] = array("weight" => $p->weight, "height" => $p->height);
+      }
+      
       return $data;
    }
 
