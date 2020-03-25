@@ -5,7 +5,7 @@
    <ul class="py-2 px-1 mb-0">
       <li class="active"><a href="{{ route('user.info') }}"><h4>User info</h4></a></li>
       <li><a href="{{ route('user.physique') }}"><h4 >Physical info</h4></a></li>
-      <li><a href="#" class='disabled'><h4 >---Coming soon---</h4></a></li>
+      <li class="disabled"><a href="#"><h4 >---Coming soon---</h4></a></li>
    </ul>
 </div>
 <div class="col-md-9">

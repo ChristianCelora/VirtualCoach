@@ -28,6 +28,7 @@ Route::middleware(['auth'])->group(function () {
 
        // Route assigned name "user.physique"
        Route::get('physique', 'UserController@getUserPhysiqueData')->name('physique');
+       Route::post('addPhysique', 'UserController@addUserPhysiqueData')->name('addPhysique');
 
        // Route assigned name "user.trainings"
        Route::get('trainings', 'UserController@showTrainings')->name('trainings');

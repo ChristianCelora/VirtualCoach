@@ -35,8 +35,7 @@ label > input.custom-check:checked ~ .fa-check-square {
 input.input-transparent {
   background-color: transparent;
   border: 2px solid #414141;
-  color: #000 !important;
-  /* Ovverides bootstrap */
+  /*color: #000 !important; /* Ovverides bootstrap */
 }
 
 input.input-transparent:focus {
@@ -61,6 +60,7 @@ div.custom-primary-btn {
 }
 
 div.custom-primary-btn:hover {
+  color: #000;
   background-color: #ff0000;
 }
 

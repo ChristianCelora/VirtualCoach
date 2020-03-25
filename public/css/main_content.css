@@ -66,11 +66,16 @@ div.user-card div.card-body div.user-menu ul li {
   cursor: pointer;
 }
 
-div.user-card div.card-body div.user-menu ul li:hover {
+div.user-card div.card-body div.user-menu ul li.disabled {
+  cursor: default;
+  opacity: 0.8;
+}
+
+div.user-card div.card-body div.user-menu ul li:not(.disabled):hover {
   text-decoration: underline;
 }
 
-div.user-card div.card-body div.user-menu ul li.active {
+div.user-card div.card-body div.user-menu ul li:not(.disabled).active {
   color: #af0404;
   text-decoration: underline;
 }

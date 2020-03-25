@@ -1,5 +1,9 @@
 @extends('layouts.app')
 
+@section('scripts')
+<script src="{{ asset('js/account.js') }}" defer></script>
+@endsection
+
 @section('content')
 <div class="container h-100">
    <div class="mt-4 d-flex justify-content-center align-items-stretch">

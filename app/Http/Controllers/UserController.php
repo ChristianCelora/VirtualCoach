@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\Physique;
 
 class UserController extends Controller {
 
@@ -13,7 +14,7 @@ class UserController extends Controller {
       return view("user_info", ["data" => $data]);
    }
 
-   public function getUserPhysiqueData(Request $request){
+   public function getUserPhysiqueData(){
       $data = array();
       $data["title"] = "My physique";
       $data["pysique_history"] = $this->getPhisiqueHistory(Auth::user()->id);
@@ -22,8 +23,29 @@ class UserController extends Controller {
 
    private function getPhisiqueHistory($user_id){
       $data = array();
-      
+
       return $data;
+   }
+
+   public function addUserPhysiqueData(Request $request){
+      if(!$this->isInputValid($request)){
+         return back()->withErrors("Input not valid");
+      }
+      $user = new Physique;
+      $user->client_id = Auth::user()->id;
+      $user->weight = $request->weight;
+      $user->height = $request->height;
+      try{
+         $user->save();
+      }catch(Exception $e){
+         return back()->withErrors($e->getMessage());
+      }
+
+      return back()->with(array("status" => "ok", "message" => "pysique added"));
+   }
+
+   private function isInputValid(Request $request){
+      return (is_numeric($request->weight) && is_numeric($request->height));
    }
 
    public function showTrainings(){
