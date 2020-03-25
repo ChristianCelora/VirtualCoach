@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Physique;
+use Session;
 
 class UserController extends Controller {
 
@@ -29,7 +30,7 @@ class UserController extends Controller {
 
    public function addUserPhysiqueData(Request $request){
       if(!$this->isInputValid($request)){
-         return back()->withErrors("Input not valid");
+         return back()->with("alert", array("status" => "error", "message" => "Input non valido"));
       }
       $user = new Physique;
       $user->client_id = Auth::user()->id;
@@ -38,10 +39,10 @@ class UserController extends Controller {
       try{
          $user->save();
       }catch(Exception $e){
-         return back()->withErrors($e->getMessage());
+         return back()->with("alert", array("status" => "error", "message" => $e->getMessage()));
       }
 
-      return back()->with(array("status" => "ok", "message" => "pysique added"));
+      return back()->with("alert", array("status" => "ok", "message" => "pysique added"));
    }
 
    private function isInputValid(Request $request){

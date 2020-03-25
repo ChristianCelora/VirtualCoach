@@ -80,3 +80,28 @@ div.user-card div.card-body div.user-menu ul li:not(.disabled).active {
   text-decoration: underline;
 }
 
+/* ALERT */
+
+div.alert.custom-alert {
+  border: 1px solid #af0404;
+  background-color: #414141;
+  color: #ff0000;
+}
+
+div.alert.custom-alert button.custom-close-btn {
+  background-color: #ff0000;
+  /* Overrides bootstrap 'close' class */
+  opacity: 1 !important;
+  text-shadow: none !important;
+  line-height: 1.1;
+}
+
+div.alert.custom-alert button.custom-close-btn:hover {
+  color: #FFF !important;
+  transition: color 500ms ease;
+  -webkit-transition: color 500ms ease;
+  -moz-transition: color 500ms ease;
+  -o-transition: color 500ms ease;
+  -ms-transition: color 500ms ease;
+}
+

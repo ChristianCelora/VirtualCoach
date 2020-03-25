@@ -77,7 +77,24 @@
             </div>
         </nav>
 
+
+
         <main class="main-content py-4 div-stretch">
+           {{-- Alert Box --}}
+           @if(Session::has("alert"))
+              @php $alert_data = Session::get("alert") @endphp
+              @if(isset($alert_data["message"]))
+                 <div class="container">
+                    <div class="alert custom-alert alert-dismissible fade show font-primary" role="alert">
+                       {{$alert_data["message"]}}
+                       <button type="button" class="close custom-close-btn font-black" data-dismiss="alert" aria-label="Close">
+                           <span aria-hidden="true">&times;</span>
+                       </button>
+                    </div>
+                 </div>
+              @endif
+           @endisset
+           {{-- Main content --}}
            @yield('content')
         </main>
 

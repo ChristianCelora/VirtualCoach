@@ -93,3 +93,27 @@ div.user-card {
       }
    }
 }
+
+/* ALERT */
+div.alert.custom-alert {
+   border: 1px solid $third;
+   background-color: $fourth;
+   color: $primary;
+
+   & button.custom-close-btn {
+      background-color: $primary;
+      /* Overrides bootstrap 'close' class */
+      opacity: 1 !important;
+      text-shadow: none !important;
+      line-height: 1.1;
+
+      &:hover {
+         color: #FFF !important;
+         transition: color 500ms ease;
+         -webkit-transition: color 500ms ease;
+         -moz-transition: color 500ms ease;
+         -o-transition: color 500ms ease;
+         -ms-transition: color 500ms ease;
+      }
+   }
+}
