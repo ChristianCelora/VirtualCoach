@@ -10,7 +10,7 @@
 </div>
 <div class="col-md-9">
    <div class="w-100 h-100 row font-primary p-3">
-      @if(isset($data["pysique_history"]) && !empty($data["pysique_history"]))
+      @if(isset($data["physique_history"]) && !empty($data["physique_history"]))
          <table class="table">
             <thead class="font-primary">
                <tr class="font-weight-bold">
@@ -20,7 +20,7 @@
                </tr>
             </thead>
             <tbody class="font-third">
-               @foreach ($data["pysique_history"] as $date => $phys_data)
+               @foreach ($data["physique_history"] as $date => $phys_data)
                   <tr>
                      <th scope="row">{{$date}}</td>
                      <td>{{$phys_data["weight"]}}</td>

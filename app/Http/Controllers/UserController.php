@@ -20,7 +20,7 @@ class UserController extends Controller {
       $data["title"] = "My physique";
 
       try{
-         $data["pysique_history"] = $this->getPhisiqueHistory(Auth::user()->id);
+         $data["physique_history"] = $this->getPhisiqueHistory(Auth::user()->id);
       }catch(ModelNotFoundException $e){
          return back()->with("alert", array("status" => "error", "message" => $e->getMessage()));
       }
@@ -35,7 +35,7 @@ class UserController extends Controller {
       foreach ($physiques as $p){
          $data[$p->created_at->format("d M Y - H:i:s")] = array("weight" => $p->weight, "height" => $p->height);
       }
-      
+
       return $data;
    }
 
@@ -53,7 +53,7 @@ class UserController extends Controller {
          return back()->with("alert", array("status" => "error", "message" => $e->getMessage()));
       }
 
-      return back()->with("alert", array("status" => "ok", "message" => "pysique added"));
+      return back()->with("alert", array("status" => "ok", "message" => "Physique added"));
    }
 
    private function isInputValid(Request $request){
