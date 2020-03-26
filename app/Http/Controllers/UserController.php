@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Physique;
+use App\Training;
 use Session;
 
 class UserController extends Controller {
@@ -28,7 +29,7 @@ class UserController extends Controller {
       return view("user_physique", ["data" => $data]);
    }
 
-   private function getPhisiqueHistory($user_id){
+   private function getPhisiqueHistory(int $user_id){
       $data = array();
 
       $physiques = Physique::where("client_id", "=", $user_id)->get();
@@ -61,7 +62,27 @@ class UserController extends Controller {
    }
 
    public function showTrainings(){
+      $data = array();
+      $data["title"] = "Trainings";
 
+      try{
+         $data["trainings"] = $this->getTrainingsData(Auth::user()->id);
+      }catch(ModelNotFoundException $e){
+         return back()->with("alert", array("status" => "error", "message" => $e->getMessage()));
+      }
+
+      return view("trainings", ["data" => $data]);
+   }
+
+   private function getTrainingsData(int $user_id){
+      $data = array();
+
+      $trainings = Training::where("client_id", "=", $user_id)->get();
+      foreach ($trainings as $t){
+         dd($t->exercises);
+      }
+
+      return $data;
    }
 
    public function showWorkouts(){

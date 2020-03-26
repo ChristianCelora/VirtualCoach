@@ -11,7 +11,7 @@ class TrainingExercise extends Model {
    * @var array
    */
   protected $fillable = [
-     'name', 'trainer_id', 'exercise_id', 'order', 'sets', 'rest_between_sets', 'trainer_notes', 'client_notes',
+     'name', 'training_id', 'exercise_id', 'order', 'sets', 'rest_between_sets', 'trainer_notes', 'client_notes',
   ];
 
   public $timestamps = false;

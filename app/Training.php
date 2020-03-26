@@ -15,4 +15,8 @@ class Training extends Model {
   ];
 
   public $timestamps = false;
+
+  public function exercises(){
+     return $this->belongsToMany('App\Exercise');
+  }
 }
