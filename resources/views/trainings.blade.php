@@ -32,7 +32,27 @@
                               </div>
                            </li>
                            <div id="collapse{{$index}}" class="collapse container font-white">
-                              {{$t["notes"]}}
+                              <div class="col-12"><p class="h5">Notes: {{$t["notes"]}}</p></div>
+                              <div class="col-8 offset-2 d-flex justify-content-center">
+                                 <table class="table font-white">
+                                    <thead>
+                                       <tr>
+                                          <th scope="col">Name</th>
+                                          <th scope="col">Sets x Reps</th>
+                                          <th scope="col">Rest</th>
+                                       </tr>
+                                    </thead>
+                                    <tbody>
+                                       @foreach ($t["exercises"] as $exercise)
+                                          <tr>
+                                             <td>{{$exercise["name"]}}</td>
+                                             <td>{{$exercise["sets"]." x ".$exercise["reps"]}}</td>
+                                             <td>{{$exercise["rest"]}}</td>
+                                          </tr>
+                                       @endforeach
+                                    </tbody>
+                                 </table>
+                              </div>
                            </div>
                            <li class="separator"></li>
                          @php $index++; @endphp

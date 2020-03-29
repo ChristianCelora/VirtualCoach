@@ -3,6 +3,8 @@ main.main-content {
   background-repeat: no-repeat;
   background-size: auto;
   background-position: center;
+  background-attachment: fixed;
+  height: 100vw;
 }
 
 /* CARDS */

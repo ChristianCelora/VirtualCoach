@@ -8,7 +8,11 @@ nav.main-top-navbar {
    font-size: 1.10em;
    letter-spacing: 0.1em;
    z-index: 100;
-
+   /* sticky */
+   position: fixed;
+   top: 0;
+   width: 100%;
+   
    & a {
       color: $primary !important;
    }
