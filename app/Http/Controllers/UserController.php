@@ -77,9 +77,20 @@ class UserController extends Controller {
    private function getTrainingsData(int $user_id){
       $data = array();
 
-      $trainings = Training::where("client_id", "=", $user_id)->get();
-      foreach ($trainings as $t){
-         dd($t->exercises);
+      $res = Training::where("client_id", "=", $user_id)->get();
+      foreach ($res as $row){
+         $data[$row->id] = array();
+         $data[$row->id]["name"] = $row->name;
+         $data[$row->id]["notes"] = $row->notes;
+         $data[$row->id]["exercises"] = array();
+         foreach ($row->exercises as $exercise){
+            $data[$row->id]["exercises"][$exercise->pivot->order]["name"] = $exercise->name;
+            $data[$row->id]["exercises"][$exercise->pivot->order]["sets"] = $exercise->pivot->sets;
+            $data[$row->id]["exercises"][$exercise->pivot->order]["reps"] = $exercise->pivot->reps;
+            $data[$row->id]["exercises"][$exercise->pivot->order]["rest"] = $exercise->pivot->rest_between_sets;
+            $data[$row->id]["exercises"][$exercise->pivot->order]["c_notes"] = $exercise->pivot->client_notes;
+            $data[$row->id]["exercises"][$exercise->pivot->order]["t_notes"] = $exercise->pivot->trainer_notes;
+         }
       }
 
       return $data;

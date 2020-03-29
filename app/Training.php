@@ -17,6 +17,7 @@ class Training extends Model {
   public $timestamps = false;
 
   public function exercises(){
-     return $this->belongsToMany('App\Exercise');
+     return $this->belongsToMany('App\Exercise')
+      ->withPivot('order', 'sets', 'reps', 'rest_between_sets', 'client_notes', 'trainer_notes');
   }
 }

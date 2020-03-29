@@ -105,3 +105,18 @@ div.alert.custom-alert button.custom-close-btn:hover {
   -ms-transition: color 500ms ease;
 }
 
+/* TRANSPARENT LIST */
+
+ul.custom-list li {
+  border: 0px;
+}
+
+ul.custom-list li.separator {
+  margin-top: 5px;
+  border-top: 2px solid #ff0000;
+}
+
+.hide {
+  display: none;
+}
+

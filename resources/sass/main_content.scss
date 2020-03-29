@@ -117,3 +117,19 @@ div.alert.custom-alert {
       }
    }
 }
+
+/* TRANSPARENT LIST */
+ul.custom-list {
+   & li {
+      border: 0px;
+   }
+
+   & li.separator {
+      margin-top: 5px;
+      border-top: 2px solid $primary;
+   }
+}
+
+.hide {
+   display: none;
+}
