@@ -5,8 +5,8 @@
 @endsection
 
 @section('content')
-<div class="container h-100">
-    <div class="row">
+<div class="container" style="min-height: 80vh;">
+    <div class="row" style="min-height: 80vh;">
         <div class="col-md-12">
             <div class="card transparent-card h-100">
                 {{--<div class="card-header"><h3 class="font-weight-bold">Dashboard</h3></div>--}}

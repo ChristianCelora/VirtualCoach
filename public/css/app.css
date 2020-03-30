@@ -16782,10 +16782,9 @@ div#main-bg {
 }
 
 .div-stretch {
-  position: absolute;
-  top: 50px;
+  margin-top: 50px;
   /* Header fixed size */
-  bottom: 55px;
+  margin-bottom: 55px;
   /* Footer fixed size */
   width: 100% !important;
   min-height: 100vh;
