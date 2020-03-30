@@ -6,7 +6,7 @@
 
 @section('content')
 <div class="container h-100">
-    <div class="row h-100">
+    <div class="row">
         <div class="col-md-12">
             <div class="card transparent-card h-100">
                 {{--<div class="card-header"><h3 class="font-weight-bold">Dashboard</h3></div>--}}

@@ -1,15 +1,6 @@
 // Variables
 @import 'variables';
 
-main.main-content{
-   background-image: url("/vcoach/images/background.jpg");
-   background-repeat: no-repeat;
-   background-size: auto;
-   background-position: center;
-   background-attachment: fixed;
-   height: 100vw;
-}
-
 /* CARDS */
 div.card.transparent-card {
    background-color: transparent;
