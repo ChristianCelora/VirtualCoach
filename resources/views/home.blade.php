@@ -20,7 +20,7 @@
                        <div class="col-12 h-100 px-auto d-flex flex-md-row flex-column align-items-center justify-content-center">
 
                           {{-- User --}}
-                          <div class="col-md-4 w-100 px-0 py-2 row my-2 align-content-stretch justify-content-center home-card font-primary" data-location="{{ route('user.info') }}">
+                          <div class="col-md-4 w-100 px-0 py-2 row my-2 align-content-stretch justify-content-center home-card custom-link font-primary" data-location="{{ route('user.info') }}">
                                <div class="card transparent-card">
                                   <div class="card-body d-flex justify-content-center">
                                      <div class="d-flex flex-column">
@@ -32,7 +32,7 @@
                            </div>
 
                            {{-- Manage Trainings --}}
-                           <div class="col-md-4 w-100 px-0 py-2 row my-2 align-content-stretch justify-content-center home-card font-primary" data-location="{{ route('user.trainings') }}">
+                           <div class="col-md-4 w-100 px-0 py-2 row my-2 align-content-stretch justify-content-center home-card custom-link font-primary" data-location="{{ route('training.get') }}">
                                 <div class="card transparent-card">
                                    <div class="card-body d-flex justify-content-center">
                                       <div class="d-flex flex-column">
@@ -44,7 +44,7 @@
                            </div>
 
                            {{-- Work out --}}
-                          <div class="col-md-4 w-100 px-0 py-2 row my-2 align-content-stretch justify-content-center home-card font-primary" data-location="{{ route('user.workout') }}">
+                          <div class="col-md-4 w-100 px-0 py-2 row my-2 align-content-stretch justify-content-center home-card custom-link font-primary" data-location="{{ route('user.workout') }}">
                                <div class="card transparent-card">
                                   <div class="card-body d-flex justify-content-center">
                                      <div class="d-flex flex-column">

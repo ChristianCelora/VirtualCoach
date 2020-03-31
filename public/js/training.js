@@ -81,7 +81,7 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 2);
+/******/ 	return __webpack_require__(__webpack_require__.s = 3);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -37090,42 +37090,36 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 
 /***/ }),
 
-/***/ "./resources/js/home.js":
-/*!******************************!*\
-  !*** ./resources/js/home.js ***!
-  \******************************/
+/***/ "./resources/js/training.js":
+/*!**********************************!*\
+  !*** ./resources/js/training.js ***!
+  \**********************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
 $(document).ready(function () {
-  $("div.custom-link").click(function () {
-    var url = $(this).data("location");
-
-    if (typeof url !== "undefined") {
-      window.location.href = url;
-    }
-  });
-  $("div.custom-collapse").click(function () {
-    target = $(this).data("target");
-    index = $(this).data("index");
-    $(target).collapse("toggle");
-    $("#plus-sign-" + index).toggle();
-    $("#minus-sign-" + index).toggle();
+  var order = 1;
+  $("div#add-exercise").click(function () {
+    var row = $("tr#clonable").clone();
+    row.removeAttr("id");
+    row.find("td.order-col").html(++order);
+    row.find("input").val("");
+    $("#exercises").append(row);
   });
 });
 
 /***/ }),
 
-/***/ 2:
-/*!************************************!*\
-  !*** multi ./resources/js/home.js ***!
-  \************************************/
+/***/ 3:
+/*!****************************************!*\
+  !*** multi ./resources/js/training.js ***!
+  \****************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /var/www/vcoach/VirtualCoach/resources/js/home.js */"./resources/js/home.js");
+module.exports = __webpack_require__(/*! /var/www/vcoach/VirtualCoach/resources/js/training.js */"./resources/js/training.js");
 
 
 /***/ })

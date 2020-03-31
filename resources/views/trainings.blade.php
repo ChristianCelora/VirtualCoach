@@ -27,8 +27,8 @@
                               <div class="float-left"><p class="h4">{{$t["name"]}}</p></div>
                               <div class="btn custom-primary-btn float-right custom-collapse" type="button" data-target="#collapse{{$index}}"
                                  data-index="{{$index}}" aria-expanded="false" aria-controls="collapse{{$index}}">
-                                 <i id="plus-sign-{{$index}}" class="fas fa-plus"></i>
-                                 <i id="minus-sign-{{$index}}" class="fas fa-minus hide"></i>
+                                 <i id="plus-sign-{{$index}}" class="fas fa-caret-down"></i>
+                                 <i id="minus-sign-{{$index}}" class="fas fa-caret-up hide"></i>
                               </div>
                            </li>
                            <div id="collapse{{$index}}" class="collapse container font-white">
@@ -59,6 +59,11 @@
                         @endforeach
                      @endisset
                   </ul>
+                  <div class="d-flex justify-content-center mb-3">
+                     <div class="btn custom-primary-btn mx-auto custom-link" data-location="{{route('training.add')}}">
+                        <i class="fas fa-plus"></i><p class="h5">New training</p>
+                     </div>
+                  </div>
                </div>
             </div>
          </div>

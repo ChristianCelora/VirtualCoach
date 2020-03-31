@@ -38,6 +38,10 @@ input.input-transparent {
   /*color: #000 !important; /* Ovverides bootstrap */
 }
 
+input.input-transparent.border-white {
+  border: 1px solid #FFF;
+}
+
 input.input-transparent:focus {
   background-color: transparent;
 }
@@ -62,5 +66,24 @@ div.custom-primary-btn {
 div.custom-primary-btn:hover {
   color: #000;
   background-color: #ff0000;
+}
+
+div.custom-secondary-btn {
+  color: #EDEDED;
+  border: 2px solid #EDEDED;
+  background-color: transparent;
+  transition: background-color 500ms ease-in-out;
+}
+
+div.custom-secondary-btn:hover {
+  color: #000;
+  background-color: #EDEDED;
+}
+
+/* SELECT */
+
+select.custom-select-transparent {
+  background-color: transparent;
+  color: #ff0000;
 }
 
