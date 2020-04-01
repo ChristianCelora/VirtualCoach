@@ -39,9 +39,10 @@ Route::middleware(['auth'])->group(function () {
       Route::get('get', 'TrainingController@showTrainings')->name('get');
       // Route assigned name "training.add"
       Route::get('add', 'TrainingController@showFormTraining')->name('add');
+      Route::post('add', 'TrainingController@addTraining')->name('add');
    });
 });
 
-Route::get('back', function () {
-    return back();
+Route::get('/back', function () {
+    return view('trainings.get');
 })->name("back");

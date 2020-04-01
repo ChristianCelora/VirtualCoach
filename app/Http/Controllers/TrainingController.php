@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Training;
 use App\Exercise;
+use App\TrainingExercise;
+use DateTime;
 
 class TrainingController extends Controller {
 
@@ -61,5 +63,59 @@ class TrainingController extends Controller {
       }
 
       return $data;
+   }
+
+   public function addTraining(Request $request){
+      // Create training
+      $trainig = new Training;
+      $trainig->name = $request->input("name");
+      if(!$trainig->name || $trainig->name == ""){
+         return back()->with("alert", array("status" => "error", "message" => "Name cannot be null"));
+      }
+      $trainig->trainer_id = 1; // Mock
+      $trainig->client_id = Auth::user()->id;
+      $now = new DateTime;
+      $trainig->created_at = $now->format("Y-m-d H:i:s");
+      try{
+         $training_id = $trainig->save();
+      }catch(QueryException $e){
+         return back()->with("alert", array("status" => "error", "message" => $e->getMessage()));
+      }
+      // Mapping valid exercises to training
+      $inserted = $this->addExercisesToTraining($training_id, $request->input("exercise"), $request->input("sets"),
+         $request->input("reps"), $request->input("rest"));
+
+      return back()->with("alert", array("status" => "ok", "message" => "Training added. Inserted $inserted exercises!"));
+   }
+
+   private function addExercisesToTraining(int $training_id, array $exercises, array $sets, array $reps, array $rest){
+      $inserted = 0;
+
+      for ($i=0; $i < sizeof($exercises); $i++) {
+         // Check validity
+         if($this->isExerciseValid($exercises[$i], $sets[$i], $reps[$i], $rest[$i])){
+            $exercise = new TrainingExercise;
+
+            $exercise->training_id = $training_id;
+            $exercise->exercise_id = $exercises[$i];
+            $exercise->order = $i + 1;
+            $exercise->sets = $sets[$i];
+            $exercise->reps = $reps[$i];
+            $exercise->rest_between_sets = $rest[$i];
+            try{
+               $exercise->save();
+               $inserted++;
+            }catch(Exception $e){
+               //
+            }
+            unset($exercise);
+         }
+      }
+
+      return $inserted;
+   }
+
+   private function isExerciseValid($name, $set, $rep, $rest){
+      return ($name != "" && is_numeric($set) && is_numeric($rep) && is_numeric($rest));
    }
 }

@@ -20,14 +20,14 @@
             <div class="card-body p-0 d-flex">
                <div class="container font-white">
 
-                  <form class="my-4" method="POST" action="{{ route('register') }}">
+                  <form class="my-4" method="POST" id="new-training" action="{{ route('training.add') }}">
                       @csrf
 
                       <div class="form-group row">
                           <label for="name" class="col-md-4 col-form-label text-md-right font-weight-bold">{{ __('Name') }}</label>
 
                           <div class="col-md-6">
-                              <input id="name" type="text" class="form-control font-white @error('name') is-invalid @enderror input-transparent font-black" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
+                              <input id="name" type="text" class="form-control font-white @error('name') is-invalid @enderror input-transparent" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
 
                               @error('name')
                                   <span class="invalid-feedback" role="alert">
@@ -62,13 +62,13 @@
                                        @endforeach
                                     </select>
                                  </td>
-                                 <td><input type="text" class="input-transparent border-white form-control font-white" name="set[]"></td>
+                                 <td><input type="text" class="input-transparent border-white form-control font-white" name="sets[]"></td>
                                  <td><input type="text" class="input-transparent border-white form-control font-white" name="reps[]"></td>
                                  <td><input type="text" class="input-transparent border-white form-control font-white" name="rest[]"></td>
                               </tr>
                            </tbody>
                         </table>
-                        <div class="btn col-6 offset-3 custom-secondary-btn custom-link" id="add-exercise" >
+                        <div class="btn col-6 offset-3 custom-secondary-btn" id="add-exercise" >
                            <i class="fas fa-plus"></i><p class="h5">add exercise</p>
                         </div>
                       </div>
@@ -79,7 +79,7 @@
                         <div class="btn custom-secondary-btn mr-2 custom-link" data-location="{{route('back')}}">
                            <i class="fas fa-arrow-left"></i><p class="h5">Back</p>
                         </div>
-                        <div class="btn custom-primary-btn ml-2 custom-link" data-location="{{route('back')}}">
+                        <div class="btn custom-primary-btn ml-2" id="form-new-training">
                            <i class="fas fa-plus"></i><p class="h5">Add training</p>
                         </div>
                      </div>

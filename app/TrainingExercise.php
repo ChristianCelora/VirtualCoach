@@ -5,6 +5,8 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 
 class TrainingExercise extends Model {
+
+   protected $table = "exercise_training";
    /**
    * The attributes that are mass assignable.
    *

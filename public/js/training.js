@@ -37108,6 +37108,9 @@ $(document).ready(function () {
     row.find("input").val("");
     $("#exercises").append(row);
   });
+  $("#form-new-training").click(function () {
+    $("#new-training").submit();
+  });
 });
 
 /***/ }),
