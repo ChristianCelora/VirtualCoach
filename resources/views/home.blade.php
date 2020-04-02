@@ -30,7 +30,7 @@
                                   </div>
                                </div>
                            </div>
-
+                           @if(Auth::user()->role == "client")
                            {{-- Manage Trainings --}}
                            <div class="col-md-4 w-100 px-0 py-2 row my-2 align-content-stretch justify-content-center home-card custom-link font-primary" data-location="{{ route('training.get') }}">
                                 <div class="card transparent-card">
@@ -54,6 +54,30 @@
                                   </div>
                                </div>
                            </div>
+                        @elseif(Auth::user()->role == "trainer")
+                           {{-- Manage Exercises --}}
+                           <div class="col-md-4 w-100 px-0 py-2 row my-2 align-content-stretch justify-content-center home-card custom-link font-primary" data-location="{{ route('training.get') }}">
+                                <div class="card transparent-card">
+                                   <div class="card-body d-flex justify-content-center">
+                                      <div class="d-flex flex-column">
+                                        <div class="m-auto"><h3 class="font-weight-bold">Manage Exercises</h3></div>
+                                        <div class="m-auto"><i class="fas fa-clipboard-list fa-2x"></i></div>
+                                     </div>
+                                  </div>
+                               </div>
+                           </div>
+                           {{-- Manage Clients --}}
+                           <div class="col-md-4 w-100 px-0 py-2 row my-2 align-content-stretch justify-content-center home-card custom-link font-primary" data-location="{{ route('training.get') }}">
+                                <div class="card transparent-card">
+                                   <div class="card-body d-flex justify-content-center">
+                                      <div class="d-flex flex-column">
+                                        <div class="m-auto"><h3 class="font-weight-bold">Manage Clients</h3></div>
+                                        <div class="m-auto"><i class="fas fa-address-book fa-2x"></i></div>
+                                     </div>
+                                  </div>
+                               </div>
+                           </div>
+                        @endif
                         </div>
                   </div>
                </div>
