@@ -35,3 +35,8 @@ nav .dropdown-menu > .dropdown-item:focus {
   transition: background-color 500ms ease-in-out;
 }
 
+.dropdown-toggle::after {
+  /* Overrides bootstrap caret */
+  display: none;
+}
+

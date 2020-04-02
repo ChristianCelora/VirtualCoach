@@ -1,5 +1,3 @@
-require('./bootstrap');
-
 $(document).ready(function(){
    var order = 1;
 

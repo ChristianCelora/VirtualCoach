@@ -12,7 +12,7 @@ nav.main-top-navbar {
    position: fixed;
    top: 0;
    width: 100%;
-   
+
    & a {
       color: $primary !important;
    }
@@ -40,4 +40,8 @@ nav .dropdown-menu {
       -ms-transition: background-color 500ms ease-in-out;
       transition: background-color 500ms ease-in-out;
    }
+}
+
+.dropdown-toggle::after {  /* Overrides bootstrap caret */
+   display: none;
 }
