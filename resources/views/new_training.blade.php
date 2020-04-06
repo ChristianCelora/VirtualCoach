@@ -76,7 +76,7 @@
 
                   <div class="d-flex justify-content-center mt-5 mb-3 d-inline">
                      <div class="mx-auto">
-                        <div class="btn custom-secondary-btn mr-2 custom-link" data-location="{{route('back')}}">
+                        <div class="btn custom-secondary-btn mr-2 custom-link" data-location="{{URL::previous()}}">
                            <i class="fas fa-arrow-left"></i><p class="h5">Back</p>
                         </div>
                         <div class="btn custom-primary-btn ml-2" id="form-new-training">

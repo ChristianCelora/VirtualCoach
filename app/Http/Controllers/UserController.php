@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Physique;
+use App\User;
 use Session;
 
 class UserController extends Controller {
@@ -58,6 +59,20 @@ class UserController extends Controller {
 
    private function isInputValid(Request $request){
       return (is_numeric($request->weight) && is_numeric($request->height));
+   }
+
+   public function showClients(){
+      $data = array();
+      $data["title"] = "Clients";
+      $data["clients"] = array();
+
+      $res = User::where("role", "=", "client")->get();
+      foreach($res as $row){
+         $data["clients"][$row->id]["name"] = $row->name;
+         $data["clients"][$row->id]["created"] = $row->created_at->format("d M Y");
+      }
+
+      return view("clients", ["data" => $data]);
    }
 
 

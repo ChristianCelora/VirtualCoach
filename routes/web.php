@@ -23,15 +23,15 @@ Route::middleware(['auth'])->group(function () {
    });
 
    Route::name('user.')->group(function () {
-      // Route assigned name "user.info"
+       // Route assigned name "user.info"
        Route::get('info', 'UserController@showInfo')->name('info');
-
        // Route assigned name "user.physique"
        Route::get('physique', 'UserController@getUserPhysiqueData')->name('physique');
        Route::post('addPhysique', 'UserController@addUserPhysiqueData')->name('addPhysique');
-
        // Route assigned name "user.workout"
        Route::get('workout', 'UserController@showWorkouts')->name('workout');
+       // Route assigned name "user.clients"
+       Route::get('clients', 'UserController@showClients')->name('clients');
    });
 
    Route::name('training.')->group(function () {
@@ -41,8 +41,12 @@ Route::middleware(['auth'])->group(function () {
       Route::get('add', 'TrainingController@showFormTraining')->name('add');
       Route::post('add', 'TrainingController@addTraining')->name('add');
    });
-});
 
-Route::get('/back', function () {
-    return view('trainings.get');
-})->name("back");
+   Route::name('exercise.')->group(function () {
+      // Route assigned name "training.get"
+      Route::get('get', 'ExerciseController@showExercises')->name('get');
+      // Route assigned name "training.add"
+      Route::get('add', 'ExerciseController@showFormExercise')->name('add');
+      Route::post('add', 'ExerciseController@addExercise')->name('add');
+   });
+});

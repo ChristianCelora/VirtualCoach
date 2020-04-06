@@ -41733,7 +41733,6 @@ __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 __webpack_require__(/*! @fortawesome/fontawesome-free/js/all.js */ "./node_modules/@fortawesome/fontawesome-free/js/all.js");
 
 $(document).ready(function () {
-  $("#navbarDropdownLi .fa-caret-up").hide();
   $("#navbarDropdownLi").click(function () {
     $(this).find(".fa-caret-up").toggle();
     $(this).find(".fa-caret-down").toggle();

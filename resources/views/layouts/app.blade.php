@@ -58,7 +58,7 @@
                                     <i class="fas fa-user"></i>
                                     {{ Auth::user()->name }}
                                     <i class="fas fa-caret-down" style="margin-left: 15px"></i>
-                                    <i class="fas fa-caret-up" style="margin-left: 15px"></i>
+                                    <i class="fas fa-caret-up" style="margin-left: 15px;display: none"></i>
                                 </a>
 
                                 <div class="dropdown-menu" aria-labelledby="navbarDropdownLi">

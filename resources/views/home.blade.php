@@ -56,7 +56,7 @@
                            </div>
                         @elseif(Auth::user()->role == "trainer")
                            {{-- Manage Exercises --}}
-                           <div class="col-md-4 w-100 px-0 py-2 row my-2 align-content-stretch justify-content-center home-card custom-link font-primary" data-location="{{ route('training.get') }}">
+                           <div class="col-md-4 w-100 px-0 py-2 row my-2 align-content-stretch justify-content-center home-card custom-link font-primary" data-location="{{ route('exercise.get') }}">
                                 <div class="card transparent-card">
                                    <div class="card-body d-flex justify-content-center">
                                       <div class="d-flex flex-column">
@@ -67,7 +67,7 @@
                                </div>
                            </div>
                            {{-- Manage Clients --}}
-                           <div class="col-md-4 w-100 px-0 py-2 row my-2 align-content-stretch justify-content-center home-card custom-link font-primary" data-location="{{ route('training.get') }}">
+                           <div class="col-md-4 w-100 px-0 py-2 row my-2 align-content-stretch justify-content-center home-card custom-link font-primary" data-location="{{ route('user.clients') }}">
                                 <div class="card transparent-card">
                                    <div class="card-body d-flex justify-content-center">
                                       <div class="d-flex flex-column">
