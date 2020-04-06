@@ -36,17 +36,17 @@ Route::middleware(['auth'])->group(function () {
 
    Route::name('training.')->group(function () {
       // Route assigned name "training.get"
-      Route::get('get', 'TrainingController@showTrainings')->name('get');
+      Route::get('getTraining', 'TrainingController@showTrainings')->name('get');
       // Route assigned name "training.add"
-      Route::get('add', 'TrainingController@showFormTraining')->name('add');
-      Route::post('add', 'TrainingController@addTraining')->name('add');
+      Route::get('addTraining', 'TrainingController@showFormTraining')->name('add');
+      Route::post('addTraining', 'TrainingController@addTraining')->name('add');
    });
 
    Route::name('exercise.')->group(function () {
       // Route assigned name "training.get"
-      Route::get('get', 'ExerciseController@showExercises')->name('get');
+      Route::get('getExercise', 'ExerciseController@showExercises')->name('get');
       // Route assigned name "training.add"
-      Route::get('add', 'ExerciseController@showFormExercise')->name('add');
-      Route::post('add', 'ExerciseController@addExercise')->name('add');
+      Route::get('addExercise', 'ExerciseController@showFormExercise')->name('add');
+      Route::post('addExercise', 'ExerciseController@addExercise')->name('add');
    });
 });

@@ -84,6 +84,11 @@ class TrainingController extends Controller {
       // Mapping valid exercises to training
       $inserted = $this->addExercisesToTraining($training_id, $request->input("exercise"), $request->input("sets"),
          $request->input("reps"), $request->input("rest"));
+      // If no exercises are valid delete training and return error
+      if($inserted <= 0){
+         Training::destroy($training_id);
+         return back()->with("alert", array("status" => "error", "message" => "Training not added. Need at least 1 valid exercise"));
+      }
 
       return back()->with("alert", array("status" => "ok", "message" => "Training added. Inserted $inserted exercises!"));
    }
