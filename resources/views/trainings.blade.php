@@ -22,13 +22,20 @@
                   <ul class="col-12 list-group custom-list">
                      @isset($data["trainings"])
                         @php $index = 0; @endphp
-                        @foreach ($data["trainings"] as $t)
+                        @foreach ($data["trainings"] as $id => $t)
                            <li class="list-group-item back-transparent font-primary">
                               <div class="float-left"><p class="h4">{{$t["name"]}}</p></div>
-                              <div class="btn custom-primary-btn float-right custom-collapse" type="button" data-target="#collapse{{$index}}"
-                                 data-index="{{$index}}" aria-expanded="false" aria-controls="collapse{{$index}}">
-                                 <i id="plus-sign-{{$index}}" class="fas fa-caret-down"></i>
-                                 <i id="minus-sign-{{$index}}" class="fas fa-caret-up hide"></i>
+                              <div class="float-right">
+                                 <div class="btn custom-primary-btn custom-collapse" type="button" data-target="#collapse{{$index}}"
+                                    data-index="{{$index}}" aria-expanded="false" aria-controls="collapse{{$index}}">
+                                    <i id="plus-sign-{{$index}}" class="fas fa-caret-down"></i>
+                                    <i id="minus-sign-{{$index}}" class="fas fa-caret-up hide"></i>
+                                 </div>
+                                 @if($data["workout"] == 1)
+                                    <div class="btn custom-secondary-btn custom-link" type="button" data-location="{{ route('training.prepWorkout', ["training_id" => $id, "step" => 1]) }}" >
+                                       <i class="fas fa-arrow-right"></i>
+                                    </div>
+                                 @endif
                               </div>
                            </li>
                            <div id="collapse{{$index}}" class="collapse container font-white">
@@ -59,11 +66,13 @@
                         @endforeach
                      @endisset
                   </ul>
-                  <div class="d-flex justify-content-center mb-3">
-                     <div class="btn custom-primary-btn mx-auto custom-link" data-location="{{route('training.add')}}">
-                        <i class="fas fa-plus"></i><p class="h5">New training</p>
+                  @if($data["workout"] == 0)
+                     <div class="d-flex justify-content-center mb-3">
+                        <div class="btn custom-primary-btn mx-auto custom-link" data-location="{{route('training.add')}}">
+                           <i class="fas fa-plus"></i><p class="h5">New training</p>
+                        </div>
                      </div>
-                  </div>
+                  @endif
                </div>
             </div>
          </div>

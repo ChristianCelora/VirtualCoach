@@ -74,9 +74,4 @@ class UserController extends Controller {
 
       return view("clients", ["data" => $data]);
    }
-
-
-   public function showWorkouts(){
-
-   }
 }

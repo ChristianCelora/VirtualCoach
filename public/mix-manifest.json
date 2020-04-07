@@ -7,5 +7,6 @@
     "/css/app.css": "/css/app.css",
     "/js/exercise.js": "/js/exercise.js",
     "/js/home.js": "/js/home.js",
-    "/js/training.js": "/js/training.js"
+    "/js/training.js": "/js/training.js",
+    "/js/workout.js": "/js/workout.js"
 }

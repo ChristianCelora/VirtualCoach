@@ -14,6 +14,7 @@ class TrainingController extends Controller {
    public function showTrainings(){
      $data = array();
      $data["title"] = "Trainings";
+     $data["workout"] = 0;
 
      try{
         $data["trainings"] = $this->getTrainingsData(Auth::user()->id);
@@ -22,6 +23,20 @@ class TrainingController extends Controller {
      }
 
      return view("trainings", ["data" => $data]);
+   }
+
+   public function showWorkouts(){
+      $data = array();
+      $data["title"] = "Trainings";
+      $data["workout"] = 1;
+
+      try{
+        $data["trainings"] = $this->getTrainingsData(Auth::user()->id);
+      }catch(ModelNotFoundException $e){
+        return back()->with("alert", array("status" => "error", "message" => $e->getMessage()));
+      }
+
+      return view("trainings", ["data" => $data]);
    }
 
    private function getTrainingsData(int $user_id){
@@ -122,5 +137,34 @@ class TrainingController extends Controller {
 
    private function isExerciseValid($name, $set, $rep, $rest){
       return ($name != "" && is_numeric($set) && is_numeric($rep) && is_numeric($rest));
+   }
+
+   public function prepareWorkout($training_id, $step = 0){
+      $data = array();
+
+      $training = Training::find($training_id);
+      // $training = Training::where("id", $training_id)->where("order", $step)->get();
+      $data["title"] = $training->name;
+      $data["workout"] = $training_id;
+      $data["step"] = $step;
+      $data["exercise"] = $this->getWorkoutStep($training, $step);
+
+      return view("workout", ["data" => $data]);
+   }
+
+   private function getWorkoutStep(Training $training, int $step){
+      $data = array();
+
+      foreach ($training->exercises as $exercise){
+         for ($i=0; $i < $exercise->pivot->sets; $i++) {
+            if($i != $step){
+               continue;
+            }
+            $data = array("step" => $exercise->pivot->order, "name" => $exercise->name,
+               "reps" => $exercise->pivot->reps, "rest" => $exercise->pivot->rest_between_sets);
+         }
+      }
+
+      return $data;
    }
 }

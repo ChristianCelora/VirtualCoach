@@ -28,8 +28,6 @@ Route::middleware(['auth'])->group(function () {
        // Route assigned name "user.physique"
        Route::get('physique', 'UserController@getUserPhysiqueData')->name('physique');
        Route::post('addPhysique', 'UserController@addUserPhysiqueData')->name('addPhysique');
-       // Route assigned name "user.workout"
-       Route::get('workout', 'UserController@showWorkouts')->name('workout');
        // Route assigned name "user.clients"
        Route::get('clients', 'UserController@showClients')->name('clients');
    });
@@ -40,6 +38,9 @@ Route::middleware(['auth'])->group(function () {
       // Route assigned name "training.add"
       Route::get('addTraining', 'TrainingController@showFormTraining')->name('add');
       Route::post('addTraining', 'TrainingController@addTraining')->name('add');
+      // Route assigned name "training.workout"
+      Route::get('getWorkout', 'TrainingController@showWorkouts')->name('workout');
+      Route::get('getWorkout/{training_id}/{step?}', 'TrainingController@prepareWorkout')->name('prepWorkout');
    });
 
    Route::name('exercise.')->group(function () {
