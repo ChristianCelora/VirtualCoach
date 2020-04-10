@@ -40,6 +40,11 @@ div.user-card div.card-header {
   color: #252525;
 }
 
+div.user-card div.card-header-white {
+  background-color: #EDEDED;
+  color: #252525;
+}
+
 div.user-card div.card-body {
   background-color: rgba(37, 37, 37, 0.7);
 }

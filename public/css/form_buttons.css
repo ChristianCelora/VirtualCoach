@@ -66,6 +66,7 @@ div.custom-primary-btn {
 div.custom-primary-btn:hover {
   color: #000;
   background-color: #ff0000;
+  cursor: pointer;
 }
 
 div.custom-secondary-btn {
@@ -78,6 +79,7 @@ div.custom-secondary-btn {
 div.custom-secondary-btn:hover {
   color: #000;
   background-color: #EDEDED;
+  cursor: pointer;
 }
 
 /* SELECT */

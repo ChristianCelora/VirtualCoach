@@ -156,12 +156,25 @@ class TrainingController extends Controller {
       $data = array();
 
       foreach ($training->exercises as $exercise){
+         $prev_exercise = "";
+         $set_n = 0;
          for ($i=0; $i < $exercise->pivot->sets; $i++) {
-            if($i != $step){
-               continue;
+            if($prev_exercise == $exercise->name){
+               $set_n++;
             }
-            $data = array("step" => $exercise->pivot->order, "name" => $exercise->name,
-               "reps" => $exercise->pivot->reps, "rest" => $exercise->pivot->rest_between_sets);
+            $prev_exercise = $exercise->name;
+            if($i == $step){
+               $data = array("step" => $exercise->pivot->order, "name" => $exercise->name,
+                  "reps" => $exercise->pivot->reps, "rest" => $exercise->pivot->rest_between_sets,
+                  "set_n" => $set_n
+               );
+               if( $exercise->pivot->trainer_notes != "" ){
+                  $data["trainer_notes"] = $exercise->pivot->trainer_notes;
+               }
+               if( $exercise->pivot->client_notes != "" ){
+                  $data["client_notes"] = $exercise->pivot->client_notes;
+               }
+            }
          }
       }
 

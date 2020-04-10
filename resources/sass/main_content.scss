@@ -52,6 +52,11 @@ div.user-card {
       color: $secondary;
    }
 
+   & div.card-header-white {
+      background-color: $fifth;
+      color: $secondary;
+   }
+
    & div.card-body {
 
       background-color: rgba($secondary, 0.7);

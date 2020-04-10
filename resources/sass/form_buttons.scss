@@ -43,7 +43,7 @@ input.input-transparent{
    &.border-white{
       border: 1px solid #FFF;
    }
-   
+
    &:focus{
       background-color: transparent;
    }
@@ -66,6 +66,7 @@ div.custom-primary-btn{
    &:hover{
       color: #000;
       background-color: $primary;
+      cursor: pointer;
    }
 }
 
@@ -78,6 +79,7 @@ div.custom-secondary-btn{
    &:hover{
       color: #000;
       background-color: $fifth;
+      cursor: pointer;
    }
 }
 
