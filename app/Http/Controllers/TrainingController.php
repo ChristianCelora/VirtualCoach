@@ -155,27 +155,30 @@ class TrainingController extends Controller {
    private function getWorkoutStep(Training $training, int $step){
       $data = array();
 
-      foreach ($training->exercises as $exercise){
-         $prev_exercise = "";
-         $set_n = 0;
-         for ($i=0; $i < $exercise->pivot->sets; $i++) {
-            if($prev_exercise == $exercise->name){
-               $set_n++;
-            }
-            $prev_exercise = $exercise->name;
-            if($i == $step){
-               $data = array("step" => $exercise->pivot->order, "name" => $exercise->name,
-                  "reps" => $exercise->pivot->reps, "rest" => $exercise->pivot->rest_between_sets,
-                  "set_n" => $set_n
-               );
-               if( $exercise->pivot->trainer_notes != "" ){
-                  $data["trainer_notes"] = $exercise->pivot->trainer_notes;
-               }
-               if( $exercise->pivot->client_notes != "" ){
-                  $data["client_notes"] = $exercise->pivot->client_notes;
-               }
-            }
+      $i = 0;
+      while($i < sizeof($training->exercises) &&
+            $step >= $training->exercises[$i]->pivot->sets + 1){
+         $step -= $training->exercises[$i]->pivot->sets;
+         $i++;
+      }
+
+      if($i < sizeof($training->exercises)){
+         $exercise = $training->exercises[$i];
+         $data = array("step" => $exercise->pivot->order, "name" => $exercise->name,
+            "reps" => $exercise->pivot->reps, "rest" => $exercise->pivot->rest_between_sets,
+            "set_n" => $step, "total_set" => $exercise->pivot->sets
+         );
+         if( $exercise->pivot->trainer_notes != "" ){
+            $data["trainer_notes"] = $exercise->pivot->trainer_notes;
          }
+         if( $exercise->pivot->client_notes != "" ){
+            $data["client_notes"] = $exercise->pivot->client_notes;
+         }
+         if($step == $exercise->pivot->sets){
+            unset($data["rest"]);
+         }
+      }else{
+         $data["last"] = true;
       }
 
       return $data;

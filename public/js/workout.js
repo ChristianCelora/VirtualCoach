@@ -133,7 +133,11 @@ $(document).ready(function () {
     var min = Math.floor(timerTime / 60);
     var sec = timerTime % 60;
     printTimer(elem, min, sec);
-    if (timerTime <= 0) stopTimer();
+
+    if (timerTime <= 0) {
+      stopTimer();
+      $("#end-rest").trigger("click"); // go to next exercise
+    }
   }
 
   function printTimer(elemn, min, sec) {

@@ -45,8 +45,10 @@ $(document).ready(function(){
 
       printTimer(elem, min, sec);
 
-      if(timerTime <= 0)
+      if(timerTime <= 0){
          stopTimer()
+         $("#end-rest").trigger("click"); // go to next exercise
+      }
    }
 
    function printTimer(elemn, min, sec){
