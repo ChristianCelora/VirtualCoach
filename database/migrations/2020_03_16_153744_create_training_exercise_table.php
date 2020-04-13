@@ -27,7 +27,7 @@ class CreateTrainingExerciseTable extends Migration {
         });
 
         Schema::table('exercise_training', function (Blueprint $table) {
-           $table->foreign('training_id')->references('id')->on('users')->onDelete('cascade');
+           $table->foreign('training_id')->references('id')->on('trainings')->onDelete('cascade');
            $table->foreign('exercise_id')->references('id')->on('exercises')->onDelete('cascade');
         });
     }
@@ -39,8 +39,8 @@ class CreateTrainingExerciseTable extends Migration {
      */
     public function down(){
         Schema::dropIfExists('exercise_training', function(Blueprint $table){
-           $table->dropForeign('lists_trainer_id_foreign');
-           $table->dropIndex('lists_trainer_id_index');
+           $table->dropForeign('lists_training_id_foreign');
+           $table->dropIndex('lists_training_id_index');
            $table->dropColumn('training_id');
            $table->dropForeign('lists_exercise_id_foreign');
            $table->dropIndex('lists_exercise_id_index');
