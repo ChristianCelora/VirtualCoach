@@ -59,6 +59,6 @@ class LoginController extends Controller {
          $workouts[] = $workout->id;
       }
 
-      Session::put("user.workouts", $workouts);
+      Session::put("active_workout", $workouts);
    }
 }

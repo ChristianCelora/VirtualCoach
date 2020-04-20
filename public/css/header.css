@@ -15,6 +15,18 @@ nav.main-top-navbar a {
   color: #ff0000 !important;
 }
 
+nav.main-top-navbar li {
+  margin: 0 10px;
+}
+
+nav.main-top-navbar li.nav-item-reverse {
+  background-color: #af0404 !important;
+}
+
+nav.main-top-navbar li.nav-item-reverse a {
+  color: #EDEDED !important;
+}
+
 nav .dropdown-menu {
   background-color: transparent !important;
 }

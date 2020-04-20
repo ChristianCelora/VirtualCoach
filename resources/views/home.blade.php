@@ -10,9 +10,13 @@
         <div class="col-md-12">
             <div class="card transparent-card h-100">
                 {{--<div class="card-header"><h3 class="font-weight-bold">Dashboard</h3></div>--}}
-                <div class="alert alert-primary" role="alert">
-                    {{ print_r(session('user.workouts')) }}
-                </div>
+                {{-- Test --}}
+                @if(session()->has('active_workout'))
+                   <div class="alert alert-primary" role="alert">
+                     active workout:
+                     {{ print_r(session('active_workout')) }}
+                   </div>
+               @endif
                 <div class="card-body p-0">
                     @if (session('status'))
                         <div class="alert alert-success" role="alert">
