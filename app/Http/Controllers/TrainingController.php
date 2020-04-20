@@ -204,23 +204,22 @@ class TrainingController extends Controller {
          $workout->training_id = $training_id;
          $workout->start = (new Datetime())->format("Y-m-d h:i:s");
          $workout->last_step = $step;
-
+         $inserted_id = $workout->save();
+         Session::put("active_workout", $inserted_id);
       }else if(sizeof($res) > 2){
          throw new \Exception("Error retriving active workout.", 1);
       }else{
          $workout = $res[0];
          $workout->last_step = $step;
+         $workout->save();
       }
-
-      $inserted_id = $workout->save();
-      Session::put("active_workout", $inserted_id);
    }
 
    public function showResumeWorkout(int $active_workout){
       $data = array();
       $workout = WorkoutHistory::find($active_workout);
       if($workout){
-         $data["workout"] = $active_workout;
+         $data["workout"] = $workout->training_id;
          $data["step"] = $workout->last_step;
       }
       return view('workout_resume', ['data' => $data]);

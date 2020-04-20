@@ -53,12 +53,9 @@ class LoginController extends Controller {
    }
 
    private function getPendingWorkouts($request, $id){
-      $workouts = array();
-      $res = WorkoutHistory::where("client_id", $id)->whereNull("end")->get();
-      foreach ($res as $workout){
-         $workouts[] = $workout->id;
+      $workout = WorkoutHistory::where("client_id", $id)->whereNull("end")->first();
+      if($workout){
+         Session::put("active_workout", $workout->id);
       }
-
-      Session::put("active_workout", $workouts);
    }
 }

@@ -32,9 +32,16 @@
                                     <i id="minus-sign-{{$index}}" class="fas fa-caret-up hide"></i>
                                  </div>
                                  @if($data["workout"] == 1)
-                                    <div class="btn custom-secondary-btn custom-link" type="button" data-location="{{ route('training.prepWorkout', ["training_id" => $id, "step" => 1]) }}" >
-                                       <i class="fas fa-arrow-right"></i>
-                                    </div>
+                                    {{-- if some workout is active  --}}
+                                    @if(session()->has('active_workout'))
+                                       <div class="btn custom-secondary-btn custom-link" type="button" data-location="{{ route('training.resume', ['active_workout' => session('active_workout')]) }}" >
+                                          <i class="fas fa-arrow-right"></i>
+                                       </div>
+                                    @else
+                                       <div class="btn custom-secondary-btn custom-link" type="button" data-location="{{ route('training.prepWorkout', ["training_id" => $id, "step" => 1]) }}" >
+                                          <i class="fas fa-arrow-right"></i>
+                                       </div>
+                                    @endif
                                  @endif
                               </div>
                            </li>
