@@ -5,11 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Physique;
-<<<<<<< Updated upstream
-=======
 use App\User;
 use App\WorkoutHistory;
->>>>>>> Stashed changes
 use Session;
 
 class UserController extends Controller {

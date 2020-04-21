@@ -4,7 +4,9 @@
 <div class="col-md-3 user-menu p-0">
    <ul class="py-2 px-1 mb-0">
       <li class="active"><a href="{{ route('user.info') }}"><h4>User info</h4></a></li>
+      @if(Auth::user()->role == "client")
       <li><a href="{{ route('user.physique') }}"><h4 >Physical info</h4></a></li>
+      @endif
       <li class="disabled"><a href="#"><h4 >---Coming soon---</h4></a></li>
    </ul>
 </div>

@@ -40,6 +40,10 @@ input.input-transparent{
    border: 2px solid $fourth;
    /*color: #000 !important; /* Ovverides bootstrap */
 
+   &.border-white{
+      border: 1px solid #FFF;
+   }
+
    &:focus{
       background-color: transparent;
    }
@@ -62,5 +66,25 @@ div.custom-primary-btn{
    &:hover{
       color: #000;
       background-color: $primary;
+      cursor: pointer;
    }
+}
+
+div.custom-secondary-btn{
+   color: $fifth;
+   border: 2px solid $fifth;
+   background-color: transparent;
+   transition: background-color 500ms ease-in-out;
+
+   &:hover{
+      color: #000;
+      background-color: $fifth;
+      cursor: pointer;
+   }
+}
+
+/* SELECT */
+select.custom-select-transparent{
+   background-color: transparent;
+   color: $primary;
 }

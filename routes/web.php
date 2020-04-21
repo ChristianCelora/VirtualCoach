@@ -29,14 +29,11 @@ Route::middleware(['auth'])->group(function () {
        // Route assigned name "user.physique"
        Route::get('physique', 'UserController@getUserPhysiqueData')->name('physique');
        Route::post('addPhysique', 'UserController@addUserPhysiqueData')->name('addPhysique');
-<<<<<<< Updated upstream
-=======
        // Route assigned name 'user.physique'
        Route::get('workoutLogs', 'UserController@getWorkoutLogs')->name('workoutLogs');
        // Route assigned name 'user.clients'
        Route::get('clients', 'UserController@showClients')->name('clients');
    });
->>>>>>> Stashed changes
 
        // Route assigned name "user.trainings"
        Route::get('trainings', 'UserController@showTrainings')->name('trainings');

@@ -5,10 +5,26 @@ nav.main-top-navbar {
   font-size: 1.1em;
   letter-spacing: 0.1em;
   z-index: 100;
+  /* sticky */
+  position: fixed;
+  top: 0;
+  width: 100%;
 }
 
 nav.main-top-navbar a {
   color: #ff0000 !important;
+}
+
+nav.main-top-navbar li {
+  margin: 0 10px;
+}
+
+nav.main-top-navbar li.nav-item-reverse {
+  background-color: #af0404 !important;
+}
+
+nav.main-top-navbar li.nav-item-reverse a {
+  color: #EDEDED !important;
 }
 
 nav .dropdown-menu {
@@ -29,5 +45,10 @@ nav .dropdown-menu > .dropdown-item:focus {
   background-color: #ff0000 !important;
   color: #000 !important;
   transition: background-color 500ms ease-in-out;
+}
+
+.dropdown-toggle::after {
+  /* Overrides bootstrap caret */
+  display: none;
 }
 

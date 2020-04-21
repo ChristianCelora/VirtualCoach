@@ -1,10 +1,3 @@
-main.main-content {
-  background-image: url("/vcoach/images/background.jpg");
-  background-repeat: no-repeat;
-  background-size: auto;
-  background-position: center;
-}
-
 /* CARDS */
 
 div.card.transparent-card {
@@ -44,6 +37,11 @@ div.user-card {
 
 div.user-card div.card-header {
   background-color: #ff0000;
+  color: #252525;
+}
+
+div.user-card div.card-header-white {
+  background-color: #EDEDED;
   color: #252525;
 }
 
@@ -103,5 +101,20 @@ div.alert.custom-alert button.custom-close-btn:hover {
   -moz-transition: color 500ms ease;
   -o-transition: color 500ms ease;
   -ms-transition: color 500ms ease;
+}
+
+/* TRANSPARENT LIST */
+
+ul.custom-list li {
+  border: 0px;
+}
+
+ul.custom-list li.separator {
+  margin-top: 5px;
+  border-top: 2px solid #ff0000;
+}
+
+.hide {
+  display: none;
 }
 

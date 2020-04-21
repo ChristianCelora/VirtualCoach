@@ -36,30 +36,40 @@
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
-                    <ul class="navbar-nav mr-auto">
+                    {{-- <ul class="navbar-nav mr-auto">
 
-                    </ul>
+                    </ul> --}}
 
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">
                         <!-- Authentication Links -->
+                        @if(session()->has('active_workout'))
+                           <li class="nav-item nav-item-reverse">
+                              <a class="nav-link" href="{{ route('training.resume', ['active_workout' => session('active_workout')]) }}">
+                                 {{ __('Live Workout') }}
+                                 <i class="fas fa-asterisk" style="font-size:8px;margin-bottom:10px;margin-left:-3px"></i>
+                              </a>
+                           </li>
+                        @endif
                         @guest
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
                             </li>
                             @if (Route::has('register'))
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
-                                </li>
+                             <li class="nav-item">
+                                 <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                             </li>
                             @endif
                         @else
-                            <li class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                   <i class="fas fa-user"></i>
-                                    {{ Auth::user()->name }} <span class="caret"></span>
+                           <li class="nav-item dropdown">
+                              <a class="nav-link dropdown-toggle open" id="navbarDropdownLi" data-toggle="dropdown" href="#" role="button" aria-haspopup="true">
+                                    <i class="fas fa-user"></i>
+                                    {{ Auth::user()->name }}
+                                    <i class="fas fa-caret-down" style="margin-left: 15px"></i>
+                                    <i class="fas fa-caret-up" style="margin-left: 15px;display: none"></i>
                                 </a>
 
-                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                <div class="dropdown-menu" aria-labelledby="navbarDropdownLi">
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
@@ -78,25 +88,27 @@
         </nav>
 
 
-
-        <main class="main-content py-4 div-stretch">
-           {{-- Alert Box --}}
-           @if(Session::has("alert"))
-              @php $alert_data = Session::get("alert") @endphp
-              @if(isset($alert_data["message"]))
-                 <div class="container">
-                    <div class="alert custom-alert alert-dismissible fade show font-primary" role="alert">
-                       {{$alert_data["message"]}}
-                       <button type="button" class="close custom-close-btn font-black" data-dismiss="alert" aria-label="Close">
-                           <span aria-hidden="true">&times;</span>
-                       </button>
+        <div id="main-bg">
+           <main class="main-content py-4 div-stretch">
+              {{-- Alert Box --}}
+              @if(Session::has("alert"))
+                 @php $alert_data = Session::get("alert") @endphp
+                 @if(isset($alert_data["message"]))
+                    <div class="container">
+                       <div class="alert custom-alert alert-dismissible fade show font-primary" role="alert">
+                          {{$alert_data["message"]}}
+                          <button type="button" class="close custom-close-btn font-black" data-dismiss="alert" aria-label="Close">
+                              <span aria-hidden="true">&times;</span>
+                          </button>
+                       </div>
                     </div>
-                 </div>
-              @endif
-           @endisset
-           {{-- Main content --}}
-           @yield('content')
-        </main>
+                 @endif
+              @endisset
+              {{-- Main content --}}
+              @yield('content')
+           </main>
+        </div>
+
 
         <footer class="site-footer pt-4">
            <div class="container">

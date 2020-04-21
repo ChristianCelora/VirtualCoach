@@ -16761,13 +16761,33 @@ readers do not read off random characters that represent icons */
   width: auto;
 }
 
+/* Resolve bug on dynamic increaso height of page */
+
+body {
+  background-image: url("/vcoach/images/background.jpg");
+  background-repeat: no-repeat;
+  background-size: auto;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+div#main-bg {
+  background-image: url("/vcoach/images/background.jpg");
+  background-repeat: no-repeat;
+  background-size: auto;
+  background-position: center;
+  background-attachment: fixed;
+  height: 100%;
+  min-height: 100vh;
+}
+
 .div-stretch {
-  position: absolute;
-  top: 50px;
+  margin-top: 50px;
   /* Header fixed size */
-  bottom: 55px;
+  margin-bottom: 55px;
   /* Footer fixed size */
   width: 100% !important;
+  min-height: 100vh;
 }
 
 /* FONTS */
@@ -16786,6 +16806,24 @@ readers do not read off random characters that represent icons */
 
 .font-black {
   color: #000 !important;
+}
+
+.font-white {
+  color: #F7F7F7 !important;
+}
+
+.font-jumbo {
+  font-size: 64px;
+}
+
+@media (max-width: 440px) {
+  .font-jumbo {
+    font-size: 42px;
+  }
+}
+
+.back-transparent {
+  background-color: transparent;
 }
 
 /* FOOTER */

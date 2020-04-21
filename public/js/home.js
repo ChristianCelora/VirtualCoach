@@ -37100,12 +37100,19 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
 $(document).ready(function () {
-  $("div.home-card").click(function () {
+  $("div.custom-link").click(function () {
     var url = $(this).data("location");
 
     if (typeof url !== "undefined") {
       window.location.href = url;
     }
+  });
+  $("div.custom-collapse").click(function () {
+    target = $(this).data("target");
+    index = $(this).data("index");
+    $(target).collapse("toggle");
+    $("#plus-sign-" + index).toggle();
+    $("#minus-sign-" + index).toggle();
   });
 });
 

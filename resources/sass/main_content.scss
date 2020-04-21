@@ -1,13 +1,6 @@
 // Variables
 @import 'variables';
 
-main.main-content{
-   background-image: url("/vcoach/images/background.jpg");
-   background-repeat: no-repeat;
-   background-size: auto;
-   background-position: center;
-}
-
 /* CARDS */
 div.card.transparent-card {
    background-color: transparent;
@@ -56,6 +49,11 @@ div.user-card {
 
    & div.card-header {
       background-color: $primary;
+      color: $secondary;
+   }
+
+   & div.card-header-white {
+      background-color: $fifth;
       color: $secondary;
    }
 
@@ -116,4 +114,20 @@ div.alert.custom-alert {
          -ms-transition: color 500ms ease;
       }
    }
+}
+
+/* TRANSPARENT LIST */
+ul.custom-list {
+   & li {
+      border: 0px;
+   }
+
+   & li.separator {
+      margin-top: 5px;
+      border-top: 2px solid $primary;
+   }
+}
+
+.hide {
+   display: none;
 }

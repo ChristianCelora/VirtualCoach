@@ -7,13 +7,13 @@ use Illuminate\Support\Facades\Schema;
 class CreateTrainingExerciseTable extends Migration {
     /**
      * Run the migrations.
-     *
+     * The table name need to respect the alphabetical order fo the 2 model ( Laravle naming convention )
      * @return void
      */
     public function up(){
-        Schema::create('training_exercise', function (Blueprint $table){
+        Schema::create('exercise_training', function (Blueprint $table){
             $table->id();
-            $table->unsignedBigInteger('trainer_id');
+            $table->unsignedBigInteger('training_id');
             $table->unsignedBigInteger('exercise_id');
             $table->integer('order');
             $table->integer('sets');
@@ -22,12 +22,12 @@ class CreateTrainingExerciseTable extends Migration {
             $table->longText('trainer_notes')->nullable();
             $table->longText('client_notes')->nullable();
 
-            $table->index('trainer_id');
+            $table->index('training_id');
             $table->index('exercise_id');
         });
 
-        Schema::table('training_exercise', function (Blueprint $table) {
-           $table->foreign('trainer_id')->references('id')->on('users')->onDelete('cascade');
+        Schema::table('exercise_training', function (Blueprint $table) {
+           $table->foreign('training_id')->references('id')->on('trainings')->onDelete('cascade');
            $table->foreign('exercise_id')->references('id')->on('exercises')->onDelete('cascade');
         });
     }
@@ -38,10 +38,10 @@ class CreateTrainingExerciseTable extends Migration {
      * @return void
      */
     public function down(){
-        Schema::dropIfExists('training_exercise', function(Blueprint $table){
-           $table->dropForeign('lists_trainer_id_foreign');
-           $table->dropIndex('lists_trainer_id_index');
-           $table->dropColumn('trainer_id');
+        Schema::dropIfExists('exercise_training', function(Blueprint $table){
+           $table->dropForeign('lists_training_id_foreign');
+           $table->dropIndex('lists_training_id_index');
+           $table->dropColumn('training_id');
            $table->dropForeign('lists_exercise_id_foreign');
            $table->dropIndex('lists_exercise_id_index');
            $table->dropColumn('exercise_id');

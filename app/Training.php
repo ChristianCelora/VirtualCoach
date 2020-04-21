@@ -15,8 +15,6 @@ class Training extends Model {
   ];
 
   public $timestamps = false;
-<<<<<<< Updated upstream
-=======
 
   public function exercises(){
      return $this->belongsToMany('App\Exercise')
@@ -26,5 +24,4 @@ class Training extends Model {
   public function training(){
         return $this->morphTo();
   }
->>>>>>> Stashed changes
 }
