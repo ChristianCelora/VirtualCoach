@@ -5,6 +5,11 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Physique;
+<<<<<<< Updated upstream
+=======
+use App\User;
+use App\WorkoutHistory;
+>>>>>>> Stashed changes
 use Session;
 
 class UserController extends Controller {
@@ -66,5 +71,34 @@ class UserController extends Controller {
 
    public function showWorkouts(){
 
+   }
+
+   public function getWorkoutLogs(){
+      $data = array();
+      $data["title"] = "Workouts history";
+
+      try{
+         $data["workout_history"] = $this->getWorkoutHistory(Auth::user()->id);
+      }catch(ModelNotFoundException $e){
+         return back()->with("alert", array("status" => "error", "message" => $e->getMessage()));
+      }
+
+      return view("user_physique", ["data" => $data]);
+   }
+
+   private function getWorkoutHistory(int $user_id){
+      $data = array();
+
+      $res = WorkoutHistory::where("client_id", $user_id)
+         ->whereNotNull("end")->orderBy("start")->get();
+      for($res as $row){
+         $workout = array();
+         $workout["start"] = $row->start;
+         $workout["end"] = $row->end;
+         $data[] = $workout;
+         unset($workout);
+      }
+
+      return $data;
    }
 }
