@@ -15,10 +15,6 @@ class WorkoutHistory extends Model {
    ];
 
    public function training(){
-<<<<<<< Updated upstream
-        return $this->morphOne('App\Training', 'training');
-=======
-      return $this->morphOne('App\Training', 'training');
->>>>>>> Stashed changes
+         return $this->hasOne('App\Training', 'id');
    }
 }

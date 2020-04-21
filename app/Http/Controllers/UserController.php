@@ -86,7 +86,7 @@ class UserController extends Controller {
          return back()->with("alert", array("status" => "error", "message" => $e->getMessage()));
       }
 
-      return view("user_physique", ["data" => $data]);
+      return view("user_workouts_history", ["data" => $data]);
    }
 
    private function getWorkoutHistory(int $user_id){
