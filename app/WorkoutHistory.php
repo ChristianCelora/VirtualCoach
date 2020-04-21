@@ -13,4 +13,8 @@ class WorkoutHistory extends Model {
    protected $fillable = [
       'id', 'client_id', 'training_id', 'start', 'end', 'last_step'
    ];
+
+   public function training(){
+      return $this->morphOne('App\Training', 'training');
+   }
 }
