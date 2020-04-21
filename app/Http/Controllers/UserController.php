@@ -74,4 +74,33 @@ class UserController extends Controller {
 
       return view("clients", ["data" => $data]);
    }
+
+   public function getWorkoutLogs(){
+      $data = array();
+      $data["title"] = "Workouts history";
+
+      try{
+         $data["workout_history"] = $this->getWorkoutHistory(Auth::user()->id);
+      }catch(ModelNotFoundException $e){
+         return back()->with("alert", array("status" => "error", "message" => $e->getMessage()));
+      }
+
+      return view("user_physique", ["data" => $data]);
+   }
+
+   private function getWorkoutHistory(int $user_id){
+      $data = array();
+
+      $res = WorkoutHistory::where("client_id", $user_id)->whereNotNull("end")->orderBy("start")->get();
+      foreach($res as $row){
+         $workout = array();
+         $workout["start"] = $row->start;
+         $workout["end"] = $row->end;
+         $workout["name"] = $row->training->name;
+         $data[] = $workout;
+         unset($workout);
+      }
+
+      return $data;
+   }
 }
