@@ -107,7 +107,7 @@
                      <div class="card-body h-100 d-flex justify-content-center align-items-center">
                         <div class="row w-100">
                            <div class="col-8 offset-2 btn custom-secondary-btn custom-collapse my-5 px-4 pt-2 pb-1 custom-link" type="button" id="end-rest"
-                                 data-location="{{ route("home") }}">
+                                 data-location="{{ route("training.endWorkout", ["training_id" => $data["workout"]]) }}">
                               <label class="font-weight-bold center">Finish</label>
                            </div>
                         </div>

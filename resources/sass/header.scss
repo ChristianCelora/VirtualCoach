@@ -16,6 +16,17 @@ nav.main-top-navbar {
    & a {
       color: $primary !important;
    }
+
+   & li {
+      margin: 0 10px; // Spacing between nav links
+
+      &.nav-item-reverse {
+         background-color: $third !important;
+         & a {
+            color: $fifth !important;
+         }
+      }
+   }
 }
 
 nav .dropdown-menu {

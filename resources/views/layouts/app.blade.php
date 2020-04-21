@@ -43,6 +43,14 @@
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">
                         <!-- Authentication Links -->
+                        @if(session()->has('active_workout'))
+                           <li class="nav-item nav-item-reverse">
+                              <a class="nav-link" href="{{ route('training.resume', ['active_workout' => session('active_workout')]) }}">
+                                 {{ __('Live Workout') }}
+                                 <i class="fas fa-asterisk" style="font-size:8px;margin-bottom:10px;margin-left:-3px"></i>
+                              </a>
+                           </li>
+                        @endif
                         @guest
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>

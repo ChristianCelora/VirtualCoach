@@ -7,7 +7,9 @@ use Illuminate\Support\Facades\Auth;
 use App\Training;
 use App\Exercise;
 use App\TrainingExercise;
+use App\WorkoutHistory;
 use DateTime;
+use Session;
 
 class TrainingController extends Controller {
 
@@ -139,7 +141,7 @@ class TrainingController extends Controller {
       return ($name != "" && is_numeric($set) && is_numeric($rep) && is_numeric($rest));
    }
 
-   public function prepareWorkout($training_id, $step = 0){
+   public function prepareWorkout(int $training_id, int $step = 0){
       $data = array();
 
       $training = Training::find($training_id);
@@ -148,6 +150,15 @@ class TrainingController extends Controller {
       $data["workout"] = $training_id;
       $data["step"] = $step;
       $data["exercise"] = $this->getWorkoutStep($training, $step);
+      try{
+         $active_workout = Session::get("active_workout");
+         if($active_workout && isset($active_workout[0]) && $active_workout[0] != $training_id){
+            return redirect()->route("training.resume", ["active_workout" => $active_workout[0]]);
+         }
+         $this->updateWorkout(Auth::user()->id, $training_id, $step);
+      }catch(Exception $e){
+         return back()->with("alert", array("status" => "error", "message" => $e->getMessage()));
+      }
 
       return view("workout", ["data" => $data]);
    }
@@ -182,5 +193,58 @@ class TrainingController extends Controller {
       }
 
       return $data;
+   }
+
+   private function updateWorkout(int $client_id, int $training_id, int $step){
+      $res = WorkoutHistory::where("client_id", $client_id)
+         ->where("training_id", $training_id)->whereNull("end")->get();
+      if(!$res || sizeof($res) == 0){ // create one
+         $workout = new WorkoutHistory;
+         $workout->client_id = $client_id;
+         $workout->training_id = $training_id;
+         $workout->start = (new Datetime())->format("Y-m-d h:i:s");
+         $workout->last_step = $step;
+         $inserted_id = $workout->save();
+         Session::put("active_workout", $inserted_id);
+      }else if(sizeof($res) > 2){
+         throw new \Exception("Error retriving active workout.", 1);
+      }else{
+         $workout = $res[0];
+         $workout->last_step = $step;
+         $workout->save();
+      }
+   }
+
+   public function showResumeWorkout(int $active_workout){
+      $data = array();
+      $workout = WorkoutHistory::find($active_workout);
+      if($workout){
+         $data["workout"] = $workout->training_id;
+         $data["step"] = $workout->last_step;
+      }
+      return view('workout_resume', ['data' => $data]);
+   }
+
+   public function cancelWorkout(int $training_id){
+      // Will cancel all the history row if the workout is incomplete
+      WorkoutHistory::destroy($training_id);
+      Session::pull("active_workout");
+
+      return view("home");
+   }
+
+   public function endWorkout(int $training_id){
+      $workout = WorkoutHistory::find($training_id);
+      if($workout){
+         $workout->end = (new Datetime())->format("Y-m-d h:i:s");
+         try{
+            $workout->save();
+            Session::pull("active_workout");
+         }catch(Exception $e){
+            return back()->with("alert", array("status" => "error", "message" => $e->getMessage()));
+         }
+      }
+
+      return view("home");
    }
 }
