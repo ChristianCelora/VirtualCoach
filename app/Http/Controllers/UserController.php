@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Physique;
 use App\User;
+use App\WorkoutHistory;
 use Session;
 
 class UserController extends Controller {
