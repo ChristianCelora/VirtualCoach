@@ -15,6 +15,6 @@ class WorkoutHistory extends Model {
    ];
 
    public function training(){
-      return $this->morphOne('App\Training', 'training');
+        return $this->morphOne('App\Training', 'training');
    }
 }

@@ -179,6 +179,7 @@ class UserController extends Controller {
          $workout = array();
          $workout["start"] = $row->start;
          $workout["end"] = $row->end;
+         $workout["name"] = $row->training->name;
          $data[] = $workout;
          unset($workout);
       }
