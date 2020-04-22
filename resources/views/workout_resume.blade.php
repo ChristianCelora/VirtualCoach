@@ -17,7 +17,7 @@
                      @if( isset($data["workout"]) && isset($data["step"]))
                      <div class="col-12 font-white d-flex justify-content-center align-items-center">
                         <div class="btn custom-secondary-btn custom-collapse mr-2 my-5 px-4 pt-2 pb-1 custom-link" type="button" id="start-workout"
-                              data-location="{{ route("training.cancelWorkout" , ["training_id" => $data["workout"]] )  }}">
+                              data-location="{{ route("training.cancelWorkout" , ["history_id" => $data["history_id"]] )  }}">
                            <i class="fas fa-times" style="margin-right:15px"></i>
                            <label class="font-weight-bold center">Cancel</label>
                         </div>

@@ -46,7 +46,7 @@ Route::middleware(['auth'])->group(function () {
       // Route assigned name 'training.resume'
       Route::get('resume/{active_workout}', 'TrainingController@showResumeWorkout')->name('resume');
       // Route assigned name 'training.cancelWorkout'
-      Route::get('cancelWorkout/{training_id}', 'TrainingController@cancelWorkout')->name('cancelWorkout');
+      Route::get('cancelWorkout/{history_id}', 'TrainingController@cancelWorkout')->name('cancelWorkout');
       // Route assigned name 'training.endWorkout'
       Route::get('endWorkout/{training_id}', 'TrainingController@endWorkout')->name('endWorkout');
    });

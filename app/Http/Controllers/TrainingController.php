@@ -217,20 +217,22 @@ class TrainingController extends Controller {
 
    public function showResumeWorkout(int $active_workout){
       $data = array();
-      $workout = WorkoutHistory::find($active_workout);
+      $workout = WorkoutHistory::where("training_id", $active_workout)
+         ->where("client_id", Auth::user()->id)->whereNull("end")->first();
       if($workout){
+         $data["history_id"] = $workout->id;
          $data["workout"] = $workout->training_id;
          $data["step"] = $workout->last_step;
       }
       return view('workout_resume', ['data' => $data]);
    }
 
-   public function cancelWorkout(int $training_id){
+   public function cancelWorkout(int $history_id){
       // Will cancel all the history row if the workout is incomplete
-      WorkoutHistory::destroy($training_id);
+      WorkoutHistory::destroy($history_id);
       Session::pull("active_workout");
 
-      return view("home");
+      return redirect("home");
    }
 
    public function endWorkout(int $training_id){
