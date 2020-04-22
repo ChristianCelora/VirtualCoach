@@ -58,6 +58,20 @@ class UserController extends Controller {
       return back()->with("alert", array("status" => "ok", "message" => "Physique added"));
    }
 
+   public function showClients(){
+      $data = array();
+      $data["title"] = "Clients";
+      $data["clients"] = array();
+
+      $res = User::where("role", "=", "client")->get();
+      foreach($res as $row){
+         $data["clients"][$row->id]["name"] = $row->name;
+         $data["clients"][$row->id]["created"] = $row->created_at->format("d M Y");
+      }
+
+      return view("clients", ["data" => $data]);
+   }
+
    private function isInputValid(Request $request){
       return (is_numeric($request->weight) && is_numeric($request->height));
    }
