@@ -13,13 +13,17 @@ use Session;
 
 class TrainingController extends Controller {
 
-   public function showTrainings(){
+   public function showTrainings(int $user_id = -1){
      $data = array();
      $data["title"] = "Trainings";
      $data["workout"] = 0;
 
+     if($user_id < 0){
+        $user_id = Auth::user()->id;   // Get from current session
+     }
+     $data["user"] = $user_id;
      try{
-        $data["trainings"] = $this->getTrainingsData(Auth::user()->id);
+        $data["trainings"] = $this->getTrainingsData($user_id);
      }catch(ModelNotFoundException $e){
         return back()->with("alert", array("status" => "error", "message" => $e->getMessage()));
      }
@@ -63,10 +67,12 @@ class TrainingController extends Controller {
      return $data;
    }
 
-   public function showFormTraining(){
+   public function showFormTraining(int $user_id){
       $data = array();
       $data["title"] = "Trainings - New";
       $data["exercises"] = $this->getExercises();
+      $data["trainer"] = (Auth::user()->role == "trainer") ? 1 : 0;
+      $data["user"] = $user_id;
 
       return view("new_training", ["data" => $data]);
    }
@@ -89,12 +95,13 @@ class TrainingController extends Controller {
       if(!$trainig->name || $trainig->name == ""){
          return back()->with("alert", array("status" => "error", "message" => "Name cannot be null"));
       }
-      $trainig->trainer_id = 1; // Mock
-      $trainig->client_id = Auth::user()->id;
+      $trainig->trainer_id = ($request->input("trainer") == 1) ? Auth::user()->id : null;
+      $trainig->client_id = $request->input("client");
       $now = new DateTime;
       $trainig->created_at = $now->format("Y-m-d H:i:s");
       try{
-         $training_id = $trainig->save();
+         $trainig->save();
+         $training_id = $trainig->id;
       }catch(QueryException $e){
          return back()->with("alert", array("status" => "error", "message" => $e->getMessage()));
       }

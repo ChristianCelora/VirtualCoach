@@ -23,6 +23,10 @@
                   <form class="my-4" method="POST" id="new-training" action="{{ route('training.add') }}">
                       @csrf
 
+                      {{-- determine if a client or a trainer is creating the training --}}
+                      <input type="hidden" name="trainer" value="@if(isset($data["trainer"])) 1 @else 0 @endif">
+                      <input type="hidden" name="client" value="{{$data["user"]}}">
+
                       <div class="form-group row">
                           <label for="name" class="col-md-4 col-form-label text-md-right font-weight-bold">{{ __('Name') }}</label>
 

@@ -75,7 +75,7 @@
                   </ul>
                   @if($data["workout"] == 0)
                      <div class="d-flex justify-content-center mb-3">
-                        <div class="btn custom-primary-btn mx-auto custom-link" data-location="{{route('training.add')}}">
+                        <div class="btn custom-primary-btn mx-auto custom-link" data-location="{{route('training.addForm', ['user_id' => $data['user']]) }}">
                            <i class="fas fa-plus"></i><p class="h5">New training</p>
                         </div>
                      </div>

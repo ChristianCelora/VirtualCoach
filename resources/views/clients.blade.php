@@ -1,5 +1,9 @@
 @extends('layouts.app')
 
+@section('scripts')
+<script src="{{ asset('js/home.js') }}" defer></script>
+@endsection
+
 @section('content')
    <div class="container h-100">
       <div class="mt-4 d-flex justify-content-center align-items-stretch">
@@ -20,14 +24,20 @@
                          <tr>
                            <th scope="col">Name</th>
                            <th scope="col">Created date</th>
+                           <th scope="col">Client Trainings</th>
                          </tr>
                      </thead>
                      <tbody>
                      @isset($data["clients"])
-                        @foreach ($data["clients"] as $c)
-                           <tr>
+                        @foreach ($data["clients"] as $id => $c)
+                           <tr scope="row">
                               <td>{{$c["name"]}}</td>
                               <td>{{$c["created"]}}</td>
+                              <td>
+                                 <div class="btn custom-secondary-btn custom-link" type="button" data-location="{{ route('training.get', ["user_id" => $id]) }}" >
+                                    <i class="fas fa-arrow-right"></i>
+                                 </div>
+                              </td>
                            </tr>
                         @endforeach
                      @endisset

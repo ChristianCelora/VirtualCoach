@@ -14,7 +14,7 @@ class CreateTrainingTable extends Migration {
       Schema::create('trainings', function (Blueprint $table){
             $table->id();
             $table->string('name');
-            $table->unsignedBigInteger('trainer_id');
+            $table->unsignedBigInteger('trainer_id')->nullable();
             $table->unsignedBigInteger('client_id');
             $table->longText('notes')->nullable();
             $table->timestamp('created_at')->nullable();

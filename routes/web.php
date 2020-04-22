@@ -36,9 +36,9 @@ Route::middleware(['auth'])->group(function () {
 
    Route::name('training.')->group(function () {
       // Route assigned name 'training.get'
-      Route::get('getTraining', 'TrainingController@showTrainings')->name('get');
+      Route::get('getTraining/{user_id?}', 'TrainingController@showTrainings')->name('get');
       // Route assigned name 'training.add'
-      Route::get('addTraining', 'TrainingController@showFormTraining')->name('add');
+      Route::get('addTraining/{user_id}', 'TrainingController@showFormTraining')->name('addForm');
       Route::post('addTraining', 'TrainingController@addTraining')->name('add');
       // Route assigned name 'training.workout'
       Route::get('getWorkout', 'TrainingController@showWorkouts')->name('workout');
