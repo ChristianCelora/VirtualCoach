@@ -62,20 +62,6 @@ class UserController extends Controller {
       return (is_numeric($request->weight) && is_numeric($request->height));
    }
 
-   public function showClients(){
-      $data = array();
-      $data["title"] = "Clients";
-      $data["clients"] = array();
-
-      $res = User::where("role", "=", "client")->get();
-      foreach($res as $row){
-         $data["clients"][$row->id]["name"] = $row->name;
-         $data["clients"][$row->id]["created"] = $row->created_at->format("d M Y");
-      }
-
-      return view("clients", ["data" => $data]);
-   }
-
    public function getWorkoutLogs(){
       $data = array();
       $data["title"] = "Workouts history";
@@ -92,12 +78,13 @@ class UserController extends Controller {
    private function getWorkoutHistory(int $user_id){
       $data = array();
 
-      $res = WorkoutHistory::where("client_id", $user_id)->whereNotNull("end")->orderBy("start")->get();
+      $res = WorkoutHistory::where("client_id", $user_id)
+         ->whereNotNull("end")->orderBy("start")->get();
       foreach($res as $row){
          $workout = array();
+         $workout["name"] = $row->training->name;
          $workout["start"] = $row->start;
          $workout["end"] = $row->end;
-         $workout["name"] = $row->training->name;
          $data[] = $workout;
          unset($workout);
       }
