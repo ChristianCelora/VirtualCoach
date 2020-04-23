@@ -182,7 +182,7 @@ class TrainingController extends Controller {
 
       if($i < sizeof($training->exercises)){
          $exercise = $training->exercises[$i];
-         $data = array("step" => $exercise->pivot->order, "name" => $exercise->name,
+         $data = array("id" => $exercise->pivot->exercise_id, "step" => $exercise->pivot->order, "name" => $exercise->name,
             "reps" => $exercise->pivot->reps, "rest" => $exercise->pivot->rest_between_sets,
             "set_n" => $step, "total_set" => $exercise->pivot->sets
          );
@@ -255,5 +255,17 @@ class TrainingController extends Controller {
       }
 
       return view("home");
+   }
+
+   public function addTrainingNote(Request $request){
+      $te = TrainingExercise::where("training_id", $request->input("training"))
+         ->where("exercise_id", $request->input("exercise"))->first();
+      try{
+         $te->client_notes = $request->input("notes");
+         $te->save();
+      }catch(Exception $e){
+         return back()->with("alert", array("status" => "error", "message" => "Error save Notes. Please retry"));
+      }
+      return back()->with("alert", array("status" => "ok", "message" => "Notes added successfully!"));
    }
 }

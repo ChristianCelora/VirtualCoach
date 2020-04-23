@@ -52,9 +52,22 @@
                               @isset($exercise["trainer_notes"])
                                  <li class="list-group-item back-transparent float-left">Trainer tips: {{$exercise["trainer_notes"]}}</li>
                               @endisset
-                              @isset($exercise["trainer_notes"])
-                                 <li class="list-group-item back-transparent float-left">Notes: {{$exercise["client_notes"]}}</li>
-                              @endisset
+                              @if(isset($exercise["client_notes"]))
+                                 <li class="list-group-item back-transparent float-left">Your notes: {{$exercise["client_notes"]}}</li>
+                              @else
+                                 <li class="list-group-item back-transparent float-left">
+                                    <form id="add-note" method="POST" action="{{route("training.addTrainingNote")}}">
+                                       @csrf
+                                       <input type="hidden" name="training" value="{{$data["workout"]}}">
+                                       <input type="hidden" name="exercise" value="{{$exercise["id"]}}">
+                                       Your notes: <br/>
+                                       <input class="input-transparent font-white" type="textarea" name="notes">
+                                       <div id="add-note-form" class="btn custom-secondary-btn">
+                                          <i class="fas fa-edit"></i>
+                                       </div>
+                                    <form>
+                                 </li>
+                              @endif
                            </ul>
                         </div>
                         @if(isset($exercise["rest"]))

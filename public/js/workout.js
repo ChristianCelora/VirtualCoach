@@ -97,6 +97,9 @@ $(document).ready(function () {
   $("#start-workout").click(function () {
     $("#step-0").show();
     $("#card-start").hide();
+  });
+  $("#add-note-form").click(function () {
+    $("#add-note").submit();
   }); // $(".next-step").click(function(){
   //    let step = $(this).data("step");
   //    next_step = step + 1;

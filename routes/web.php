@@ -49,6 +49,9 @@ Route::middleware(['auth'])->group(function () {
       Route::get('cancelWorkout/{history_id}', 'TrainingController@cancelWorkout')->name('cancelWorkout');
       // Route assigned name 'training.endWorkout'
       Route::get('endWorkout/{training_id}', 'TrainingController@endWorkout')->name('endWorkout');
+      // Route assigned name 'training.addTrainingNote'
+      Route::post('addTrainingNote', 'TrainingController@addTrainingNote')->name('addTrainingNote');
+
    });
 
    Route::name('exercise.')->group(function () {
