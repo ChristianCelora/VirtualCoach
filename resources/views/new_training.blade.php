@@ -53,6 +53,9 @@
                                  <th scope="col">Sets</th>
                                  <th scope="col">Reps</th>
                                  <th scope="col">Rest</th>
+                                 @if(Auth::user()->role == "trainer")
+                                    <th scope="col">Notes</th>
+                                 @endif
                               </tr>
                            </thead>
                            <tbody id="exercises">
@@ -69,6 +72,9 @@
                                  <td><input type="text" class="input-transparent border-white form-control font-white" name="sets[]"></td>
                                  <td><input type="text" class="input-transparent border-white form-control font-white" name="reps[]"></td>
                                  <td><input type="text" class="input-transparent border-white form-control font-white" name="rest[]"></td>
+                                 @if(Auth::user()->role == "trainer")
+                                    <td><input type="text" class="input-transparent border-white form-control font-white" name="notes[]"></td>
+                                 @endif
                               </tr>
                            </tbody>
                         </table>

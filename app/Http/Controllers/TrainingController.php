@@ -105,9 +105,9 @@ class TrainingController extends Controller {
       }catch(QueryException $e){
          return back()->with("alert", array("status" => "error", "message" => $e->getMessage()));
       }
-      // Mapping valid exercises to training
+      // Mapping valid exercises to trainingì
       $inserted = $this->addExercisesToTraining($training_id, $request->input("exercise"), $request->input("sets"),
-         $request->input("reps"), $request->input("rest"));
+         $request->input("reps"), $request->input("rest"), $request->input("notes"));
       // If no exercises are valid delete training and return error
       if($inserted <= 0){
          Training::destroy($training_id);
@@ -117,7 +117,7 @@ class TrainingController extends Controller {
       return back()->with("alert", array("status" => "ok", "message" => "Training added. Inserted $inserted exercises!"));
    }
 
-   private function addExercisesToTraining(int $training_id, array $exercises, array $sets, array $reps, array $rest){
+   private function addExercisesToTraining(int $training_id, array $exercises, array $sets, array $reps, array $rest, $notes = array()){
       $inserted = 0;
 
       for ($i=0; $i < sizeof($exercises); $i++) {
@@ -131,6 +131,7 @@ class TrainingController extends Controller {
             $exercise->sets = $sets[$i];
             $exercise->reps = $reps[$i];
             $exercise->rest_between_sets = $rest[$i];
+            $exercise->trainer_notes = (isset($notes[$i])) ? $notes[$i] : null;
             try{
                $exercise->save();
                $inserted++;
@@ -224,8 +225,9 @@ class TrainingController extends Controller {
 
    public function showResumeWorkout(int $active_workout){
       $data = array();
-      $workout = WorkoutHistory::where("training_id", $active_workout)
-         ->where("client_id", Auth::user()->id)->whereNull("end")->first();
+      // $workout = WorkoutHistory::where("training_id", $active_workout)
+      //    ->where("client_id", Auth::user()->id)->whereNull("end")->first();
+      $workout = WorkoutHistory::find($active_workout);
       if($workout){
          $data["history_id"] = $workout->id;
          $data["workout"] = $workout->training_id;
